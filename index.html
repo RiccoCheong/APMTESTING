@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="min-h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>心靈微充電站 ｜ 澳門心理學會</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans TC"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* 1. 溫潤流動的動態極光呼吸背景 (Ambient Aurora Light) */
+    body {
+      background-color: #f6f3eb;
+      color: #1c1917;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      position: relative;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    .aurora-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .aurora-orb {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(70px);
+      opacity: 0.65;
+      mix-blend-mode: multiply;
+      animation: auroraFloat 16s ease-in-out infinite alternate;
+    }
+
+    .aurora-orb-1 {
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, #fde68a 0%, #fed7aa 60%, transparent 100%);
+      top: -60px;
+      left: -60px;
+      animation-duration: 18s;
+    }
+
+    .aurora-orb-2 {
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, #a7f3d0 0%, #6ee7b7 55%, transparent 100%);
+      top: 30%;
+      right: -100px;
+      animation-duration: 22s;
+      animation-delay: -5s;
+    }
+
+    .aurora-orb-3 {
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, #c7d2fe 0%, #ddd6fe 60%, transparent 100%);
+      bottom: -60px;
+      left: 10%;
+      animation-duration: 20s;
+      animation-delay: -10s;
+    }
+
+    @keyframes auroraFloat {
+      0% { transform: translate(0px, 0px) scale(1); }
+      50% { transform: translate(35px, 45px) scale(1.12); }
+      100% { transform: translate(-25px, 20px) scale(0.95); }
+    }
+
+    /* 2. 晶透毛玻璃 2.0 (Glassmorphism with Top Light Edge) */
+    .glass-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.76);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 
+        inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.95),
+        0 14px 28px -8px rgba(120, 100, 80, 0.12),
+        0 4px 10px -2px rgba(120, 100, 80, 0.05);
+      transition: all 0.26s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .glass-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 
+        inset 0 1.5px 1px 0 rgba(255, 255, 255, 1),
+        0 20px 36px -10px rgba(120, 100, 80, 0.18),
+        0 6px 14px -2px rgba(120, 100, 80, 0.08);
+    }
+    .glass-card:active {
+      transform: scale(0.98);
+    }
+
+    /* 專屬卡片光澤色彩投射 */
+    .hero-glow-green {
+      background: linear-gradient(135deg, rgba(236, 253, 245, 0.88) 0%, rgba(209, 250, 229, 0.75) 50%, rgba(167, 243, 208, 0.65) 100%);
+      box-shadow: 
+        inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.95),
+        0 16px 32px -8px rgba(16, 185, 129, 0.16);
+    }
+
+    .pulse-glow-blue {
+      background: linear-gradient(145deg, rgba(240, 249, 255, 0.88) 0%, rgba(224, 242, 254, 0.75) 60%, rgba(186, 230, 253, 0.6) 100%);
+      box-shadow: 
+        inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.95),
+        0 14px 28px -8px rgba(14, 165, 233, 0.15);
+    }
+
+    .thermo-glow-amber {
+      background: linear-gradient(145deg, rgba(255, 251, 235, 0.9) 0%, rgba(254, 243, 199, 0.78) 60%, rgba(253, 230, 138, 0.6) 100%);
+      box-shadow: 
+        inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.95),
+        0 14px 28px -8px rgba(245, 158, 11, 0.15);
+    }
+
+    .audio-glow-purple {
+      background: linear-gradient(135deg, rgba(245, 243, 255, 0.88) 0%, rgba(237, 233, 254, 0.76) 55%, rgba(221, 214, 254, 0.65) 100%);
+      box-shadow: 
+        inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.95),
+        0 14px 28px -8px rgba(139, 92, 246, 0.15);
+    }
+
+    /* 呼吸節律光暈動態 */
+    @keyframes liveBreath {
+      0%, 100% { transform: scale(1); opacity: 0.85; }
+      50% { transform: scale(1.08); opacity: 1; }
+    }
+    .breath-live-anim {
+      animation: liveBreath 4.2s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    /* 律動等化器光柱 */
+    @keyframes eqWave {
+      0%, 100% { height: 6px; }
+      50% { height: 20px; }
+    }
+    .eq-bar-1 { animation: eqWave 1.1s ease-in-out infinite; }
+    .eq-bar-2 { animation: eqWave 0.8s ease-in-out infinite 0.2s; }
+    .eq-bar-3 { animation: eqWave 1.3s ease-in-out infinite 0.4s; }
+    .eq-bar-4 { animation: eqWave 0.95s ease-in-out infinite 0.15s; }
+
+    /* 專屬凹陷座標網格呼吸儀表板 */
+    .wave-display-inset {
+      background-color: #e5ece0;
+      border-radius: 24px;
+      border: 1.5px solid #cfdad0;
+      box-shadow: 
+        inset 0 4px 8px 0 rgba(40, 55, 40, 0.2),
+        inset 0 1.5px 3px 0 rgba(40, 55, 40, 0.14),
+        0 1.5px 1px 0 rgba(255, 255, 255, 0.9);
+    }
+  </style>
+</head>
+
+<body class="antialiased min-h-screen flex justify-center py-4 px-3.5 sm:px-5 select-none">
+
+  <!-- 背景動態極光光暈層 -->
+  <div class="aurora-bg">
+    <div class="aurora-orb aurora-orb-1"></div>
+    <div class="aurora-orb-2 aurora-orb"></div>
+    <div class="aurora-orb-3 aurora-orb"></div>
+  </div>
+
+  <main class="w-full max-w-[430px] flex flex-col my-auto space-y-3 relative z-10">
+
+    <!-- 1. 頂部狀態列：品牌識別 + 時間動態問候 + 資源快捷入口 -->
+    <header class="w-full flex items-center justify-between px-0.5 pt-0.5">
+      <div class="flex items-center gap-2.5">
+        <a href="https://apm.org.mo" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-2xl bg-white/90 backdrop-blur-md border border-white/80 p-0.5 shadow-sm flex items-center justify-center shrink-0 active:scale-95 transition-transform">
+          <img 
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcVpTOLbFRb-5sCyMEFim-awAzLFS84YhYGKcQ1edVRdmxquF-b_1M5D_z&s=10" 
+            alt="澳門心理學會" 
+            class="w-full h-full rounded-[12px] object-cover"
+            onerror="this.src='https://placehold.co/40x40/0d9488/ffffff?text=APM'"
+          />
+        </a>
+        <div class="flex flex-col text-left leading-tight">
+          <span class="text-[14px] font-bold text-stone-900 tracking-tight flex items-center gap-1.5">
+            <span>澳門心理學會</span>
+            <span class="text-[9px] font-bold px-1.5 py-0.2 rounded bg-emerald-500/15 text-emerald-800 border border-emerald-500/20">官方</span>
+          </span>
+          <span id="timeGreeting" class="text-[11px] text-stone-500 font-normal mt-0.5">此時此刻 · 給自己 3 分鐘重新連線</span>
+        </div>
+      </div>
+
+      <!-- 快捷求助按鈕 -->
+      <button onclick="openModal('resourcesModal')" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-white/90 text-[11px] font-semibold text-stone-700 shadow-2xs hover:border-amber-400 active:scale-95 transition-all shrink-0">
+        <span class="text-xs">🌿</span>
+        <span>本澳心理健康資源</span>
+      </button>
+    </header>
+
+    <!-- 2. 今日情緒微簽到晶透膠囊 (Mood Check-in & Emotion Granularity) -->
+    <section onclick="openModal('moodModal')" class="glass-card w-full rounded-[22px] p-3 cursor-pointer flex items-center justify-between group overflow-hidden">
+      <div class="absolute -right-10 -bottom-10 w-28 h-28 bg-amber-300/20 rounded-full blur-xl pointer-events-none"></div>
+
+      <div class="flex items-center gap-2.5 relative z-10">
+        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-400/20 to-rose-400/20 border border-white flex items-center justify-center text-base shadow-2xs group-hover:scale-105 transition-transform shrink-0">
+          💭
+        </div>
+        <div class="text-left">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[13.5px] font-bold text-stone-900 tracking-tight">今日情緒微簽到</span>
+            <span id="moodCurrentBadge" class="text-[10px] font-medium px-2 py-0.5 rounded-full bg-white/90 text-stone-600 border border-stone-200/80 shadow-2xs">命名當下感受</span>
+          </div>
+          <p id="moodCurrentSubtitle" class="text-[11px] text-stone-500 font-normal mt-0.5">精確命名情緒，降低大腦焦慮負荷</p>
+        </div>
+      </div>
+
+      <div class="relative z-10 flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-stone-900 text-white text-[10.5px] font-bold shadow-xs group-hover:bg-amber-500 group-hover:text-stone-950 transition-all shrink-0">
+        <span>簽到</span>
+        <span class="text-xs group-hover:translate-x-0.5 transition-transform">→</span>
+      </div>
+    </section>
+
+    <!-- 3. HERO 主角寬幅卡：身心安定站 · 腹式呼吸調律 -->
+    <section onclick="openModal('breathingModal')" class="glass-card hero-glow-green w-full rounded-[26px] p-4 cursor-pointer relative overflow-hidden group">
+      <div class="absolute -right-12 -top-12 w-44 h-44 rounded-full bg-emerald-300/35 blur-2xl pointer-events-none"></div>
+      <div class="absolute left-8 bottom-0 w-32 h-32 rounded-full bg-teal-200/30 blur-xl pointer-events-none"></div>
+
+      <div class="flex items-start justify-between relative z-10">
+        <div class="text-left">
+          <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-800/10 border border-emerald-700/15 text-emerald-900 text-[10px] font-semibold tracking-wide">
+            <span>✨</span><span>本日主推微練習</span>
+          </div>
+          <h2 class="text-[19px] font-extrabold text-stone-900 tracking-tight leading-tight mt-1">
+            身心安定站
+          </h2>
+          <p class="text-[11px] font-medium text-emerald-800/70 mt-0.5 tracking-wide">Breath Relaxation</p>
+        </div>
+
+        <div class="flex items-center gap-1 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-white text-[10.5px] font-semibold text-emerald-950 shadow-2xs">
+          <span>🌬️</span>
+          <span>3 分鐘</span>
+        </div>
+      </div>
+
+      <div class="w-full flex items-center justify-between my-2 relative z-10">
+        <div class="w-24 h-24 relative flex items-center justify-center shrink-0">
+          <div class="breath-live-anim absolute w-20 h-20 rounded-full bg-white/70 shadow-[0_0_20px_rgba(52,211,153,0.3)] pointer-events-none"></div>
+
+          <div class="w-full h-full relative z-10 flex items-center justify-center">
+            <svg class="w-full h-full drop-shadow-sm" viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="#1e293b" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                <path d="M 68 74 H 36 C 24 74, 20 62, 30 57 C 40 52, 40 66, 30 66"/>
+                <path d="M 68 84 H 34 C 22 84, 18 96, 28 101 C 38 106, 38 92, 28 92"/>
+              </g>
+              <path d="M 64 135 C 68 122, 85 116, 94 116 C 103 116, 120 122, 124 135 Z" fill="#86efac" stroke="#1e293b" stroke-width="3.6"/>
+              <path d="M 86 100 V 120 H 102 V 92" fill="#fed7aa"/>
+              <path d="M 86 100 V 118" stroke="#1e293b" stroke-width="3.6" stroke-linecap="round"/>
+              <path d="M 102 94 V 118" stroke="#1e293b" stroke-width="3.6" stroke-linecap="round"/>
+              <path d="M 85 58 L 68 74 H 76 C 78 80, 72 86, 76 89 C 79 93, 86 96, 90 96 L 98 94 C 102 92, 105 86, 104 80 L 102 70 C 102 62, 94 58, 85 58 Z" fill="#fed7aa"/>
+              <path d="M 85 58 L 68 74 H 76 C 78 80, 72 86, 76 89 C 79 93, 86 96, 89 96" stroke="#1e293b" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M 98 72 C 104 72, 106 80, 101 83 C 99 85, 96 84, 95 81" fill="#fed7aa" stroke="#1e293b" stroke-width="3.2" stroke-linecap="round"/>
+              <path d="M 78 68 C 82 72, 88 72, 91 68" stroke="#1e293b" stroke-width="3.4" stroke-linecap="round"/>
+              <path d="M 84 59 C 72 59, 62 49, 66 35 C 69 24, 78 19, 86 26 C 90 30, 86 38, 93 38 C 103 38, 115 42, 120 54 C 124 66, 121 84, 105 91 L 101 82 C 104 74, 103 64, 99 60 Z" fill="#64748b" stroke="#1e293b" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M 66 35 C 70 24, 78 19, 86 26 C 90 30, 86 38, 93 38" stroke="#1e293b" stroke-width="3.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="flex-1 pl-3 text-left">
+          <p class="text-[12px] text-emerald-950 font-normal leading-relaxed">
+            透過科學節奏吐納平抑交感神經，將專注拉回身心平衡。
+          </p>
+          <div class="mt-2.5 flex items-center gap-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stone-900 text-white text-[12px] font-bold shadow-xs group-hover:bg-emerald-600 transition-all">
+              <span>立即調息</span>
+              <span class="text-xs group-hover:translate-x-0.5 transition-transform">→</span>
+            </span>
+            <span class="text-[10.5px] text-emerald-900 font-medium">光球 / 波形引導</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 中段 Bento 雙子方卡：身心覺察站 ✕ 心情溫度計 -->
+    <section class="grid grid-cols-2 gap-2.5 sm:gap-3">
+      <!-- 左卡：身心覺察站 (HBT 脈搏心律檢測) -->
+      <div onclick="openModal('biofeedbackModal')" class="glass-card pulse-glow-blue rounded-[24px] p-3 pb-2.5 flex flex-col justify-between min-h-[175px] cursor-pointer group relative overflow-hidden">
+        <div class="absolute -top-6 -right-6 w-24 h-24 bg-sky-300/30 rounded-full blur-lg pointer-events-none"></div>
+
+        <div class="flex items-start justify-between relative z-10">
+          <div class="text-left">
+            <span class="text-[9.5px] font-semibold text-sky-900 bg-white/90 px-1.5 py-0.5 rounded border border-white">HBT 追蹤</span>
+            <h3 class="text-[15px] font-bold text-stone-900 tracking-tight leading-tight mt-1">身心覺察站</h3>
+            <p class="text-[10px] font-medium text-sky-900/60 mt-0.5 tracking-wide">Pulse &amp; Rhythm</p>
+          </div>
+          <span class="w-6 h-6 rounded-xl bg-white/95 text-sky-600 flex items-center justify-center text-xs shadow-2xs group-hover:scale-105 transition-transform shrink-0">
+            💓
+          </span>
+        </div>
+
+        <div class="w-full flex-1 relative flex items-center justify-center py-0.5">
+          <div class="breath-live-anim w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center relative">
+            <div class="absolute inset-0 bg-rose-400/25 rounded-full blur-md"></div>
+            <svg class="w-full h-full relative z-10 drop-shadow-xs" viewBox="0 0 100 80" fill="none">
+              <path d="M50 68C32 54 22 42 22 30C22 20 29 13 38 13C44 13 48 16 50 19C52 16 56 13 62 13C71 13 78 20 78 30C78 42 68 54 50 68Z" fill="url(#bentoHeartGrad)"/>
+              <path d="M22 40H38L42 34L46 48L50 26L54 46L57 38L60 40H78" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="bentoHeartGrad" x1="50" y1="13" x2="50" y2="68" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#fb7185"/>
+                  <stop offset="1" stop-color="#e11d48"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-1 mt-0.5 border-t border-sky-300/30 text-[10.5px] font-semibold text-sky-950 shrink-0">
+          <span class="text-stone-600">輕敲 15 次脈搏</span>
+          <span class="font-bold text-sky-900 group-hover:translate-x-0.5 transition-transform">測量 →</span>
+        </div>
+      </div>
+
+      <!-- 右卡：心情溫度計 (BSRS-5 自評) -->
+      <div onclick="openModal('bsrsModal')" class="glass-card thermo-glow-amber rounded-[24px] p-3 pb-2.5 flex flex-col justify-between min-h-[175px] cursor-pointer group relative overflow-hidden">
+        <div class="absolute -top-6 -right-6 w-24 h-24 bg-amber-300/35 rounded-full blur-lg pointer-events-none"></div>
+
+        <div class="flex items-start justify-between relative z-10">
+          <div class="text-left">
+            <span class="text-[9.5px] font-semibold text-amber-900 bg-white/90 px-1.5 py-0.5 rounded border border-white">BSRS-5</span>
+            <h3 class="text-[15px] font-bold text-stone-900 tracking-tight leading-tight mt-1">心情溫度計</h3>
+            <p class="text-[10px] font-medium text-amber-900/60 mt-0.5 tracking-wide">Thermometer</p>
+          </div>
+          <span class="w-6 h-6 rounded-xl bg-white/95 text-amber-600 flex items-center justify-center text-xs shadow-2xs group-hover:scale-105 transition-transform shrink-0">
+            🌡
+          </span>
+        </div>
+
+        <div class="w-full flex-1 relative flex items-center justify-center py-0.5">
+          <svg class="w-14 h-14 sm:w-16 sm:h-16 drop-shadow-xs" viewBox="0 0 100 80" fill="none">
+            <circle cx="28" cy="28" r="8" fill="#fde047"/>
+            <path d="M28 16V18M28 38V40M16 28H18M38 28H40" stroke="#f59e0b" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="26" cy="27" r="1" fill="#451a03"/><circle cx="30" cy="27" r="1" fill="#451a03"/>
+            <rect x="47" y="10" width="14" height="46" rx="7" fill="#ffffff" stroke="#92400e" stroke-width="2"/>
+            <circle cx="54" cy="56" r="12" fill="#ffffff" stroke="#92400e" stroke-width="2"/>
+            <rect x="50" y="14" width="8" height="42" rx="4" fill="url(#bentoThermoGrad)"/>
+            <circle cx="54" cy="56" r="8" fill="#34d399"/>
+            <line x1="62" y1="20" x2="66" y2="20" stroke="#92400e" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="62" y1="30" x2="66" y2="30" stroke="#92400e" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="62" y1="40" x2="66" y2="40" stroke="#92400e" stroke-width="1.5" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="bentoThermoGrad" x1="0" y1="14" x2="0" y2="56" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#f87171"/><stop offset="0.5" stop-color="#fbbf24"/><stop offset="1" stop-color="#34d399"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <div class="flex items-center justify-between pt-1 mt-0.5 border-t border-amber-300/30 text-[10.5px] font-semibold text-amber-950 shrink-0">
+          <span class="text-stone-600">1 分鐘情緒快篩</span>
+          <span class="font-bold text-amber-900 group-hover:translate-x-0.5 transition-transform">自評 →</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 下段音訊 Bento 卡片：心靈放鬆站 · 五感著陸 -->
+    <section onclick="openModal('groundingModal')" class="glass-card audio-glow-purple w-full rounded-[24px] p-3 cursor-pointer relative overflow-hidden group">
+      <div class="absolute -right-8 -bottom-8 w-28 h-28 bg-violet-400/25 rounded-full blur-xl pointer-events-none"></div>
+
+      <div class="flex items-center justify-between relative z-10">
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-violet-600 to-indigo-500 text-white flex items-center justify-center text-base shadow-xs shrink-0 group-hover:scale-105 transition-transform">
+            <span>🎧</span>
+          </div>
+
+          <div class="text-left">
+            <div class="flex items-center gap-1.5">
+              <h3 class="text-[15px] font-bold text-stone-900 tracking-tight leading-tight">心靈放鬆站</h3>
+              <span class="text-[9.5px] font-semibold px-1.5 py-0.5 rounded-full bg-white/90 text-violet-900 border border-white">語音引導</span>
+            </div>
+            <p class="text-[11px] text-violet-950/80 font-normal mt-0.5">五感著陸練習（Grounding）· 回到當下</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <div class="flex items-end gap-0.5 h-4 px-0.5">
+            <div class="w-0.5 bg-violet-500 rounded-full eq-bar-1"></div>
+            <div class="w-0.5 bg-violet-600 rounded-full eq-bar-2"></div>
+            <div class="w-0.5 bg-violet-400 rounded-full eq-bar-3"></div>
+            <div class="w-0.5 bg-violet-700 rounded-full eq-bar-4"></div>
+          </div>
+          <span class="w-7 h-7 rounded-full bg-stone-900 text-white flex items-center justify-center text-[10px] font-bold shadow-2xs group-hover:bg-violet-700 transition-colors">
+            ▶
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 整合型 App 快捷導航欄 -->
+    <footer class="pt-0.5 pb-1 space-y-2 relative z-10">
+      <div class="grid grid-cols-2 gap-2">
+        <a href="https://apm.org.mo" target="_blank" rel="noopener noreferrer" class="bg-white/80 backdrop-blur-md rounded-2xl p-2 flex items-center justify-between border border-white/80 hover:border-emerald-300 shadow-2xs transition-colors group">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+            <div class="text-left leading-tight">
+              <div class="text-[11.5px] font-bold text-stone-800 group-hover:text-emerald-700">學會官網</div>
+              <div class="text-[9.5px] font-mono text-stone-400 mt-0.5">apm.org.mo</div>
+            </div>
+          </div>
+          <span class="text-xs text-stone-400 group-hover:text-stone-700 shrink-0">↗</span>
+        </a>
+
+        <a href="https://www.facebook.com/apm.macau" target="_blank" rel="noopener noreferrer" class="bg-white/80 backdrop-blur-md rounded-2xl p-2 flex items-center justify-between border border-white/80 hover:border-blue-300 shadow-2xs transition-colors group">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-[#1877F2] shrink-0"></span>
+            <div class="text-left leading-tight">
+              <div class="text-[11.5px] font-bold text-stone-800 group-hover:text-blue-700">官方 Facebook</div>
+              <div class="text-[9.5px] font-mono text-stone-400 mt-0.5">@apm.macau</div>
+            </div>
+          </div>
+          <span class="text-xs text-stone-400 group-hover:text-stone-700 shrink-0">↗</span>
+        </a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- 0. 今日情緒微日記彈窗 -->
+  <div id="moodModal" class="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-200">
+    <div class="bg-[#faf7f2] border border-stone-200 rounded-[32px] w-full max-w-md max-h-[92vh] flex flex-col shadow-2xl overflow-hidden transform scale-95 transition-transform duration-200 text-stone-800" id="moodModalContent">
+      <div class="p-4 bg-white border-b border-stone-200/80 flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center text-xs text-amber-700">💭</div>
+          <div>
+            <h3 class="text-sm font-black text-stone-900">今日情緒微簽到 ｜ 感受詞庫</h3>
+            <p class="text-[9.5px] text-stone-500 font-medium">Emotion Granularity · 精準命名，化解緊繃</p>
+          </div>
+        </div>
+        <button onclick="closeModal('moodModal')" class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 hover:text-stone-900 font-bold">&times;</button>
+      </div>
+
+      <div class="p-4 overflow-y-auto space-y-3.5 flex-1 text-left">
+        <div class="p-3 bg-amber-50/90 border border-amber-200/80 rounded-2xl text-[11px] text-amber-950 leading-relaxed shadow-2xs">
+          <span class="font-black text-amber-900 flex items-center gap-1 mb-0.5">
+            <span>💡</span><span>心理學「情緒顆粒度」：</span>
+          </span>
+          神經科學發現，當我們能<strong>精準命名</strong>當下的具體感受，大腦杏仁核的焦慮活化便會即時下降，有助啟動理性調節。
+        </div>
+
+        <div class="space-y-2.5">
+          <div class="text-[11.5px] font-black text-stone-800 flex items-center justify-between">
+            <span>點選最契合你當下心境的感受：</span>
+            <span class="text-[9px] text-stone-400 font-bold">4 種生活心境</span>
+          </div>
+
+          <!-- 分類 1：焦躁・緊繃時 -->
+          <div class="bg-rose-50/70 p-2.5 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="text-[10.5px] font-black text-rose-800 flex items-center gap-1.5">
+              <span>⚡</span><span>焦躁・緊繃時</span>
+            </span>
+            <div class="flex flex-wrap gap-1.5">
+              <button onclick="selectMoodWord('焦躁', '😣', '4-7-8 放鬆呼吸')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-rose-200 text-stone-700 text-xs font-bold hover:border-rose-400 transition-all flex items-center gap-1">
+                <span>😣</span><span>焦躁</span>
+              </button>
+              <button onclick="selectMoodWord('緊繃', '🫨', '箱式 4-4-4-4 呼吸')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-rose-200 text-stone-700 text-xs font-bold hover:border-rose-400 transition-all flex items-center gap-1">
+                <span>🫨</span><span>緊繃</span>
+              </button>
+              <button onclick="selectMoodWord('煩亂', '🤯', '4-7-8 放鬆呼吸')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-rose-200 text-stone-700 text-xs font-bold hover:border-rose-400 transition-all flex items-center gap-1">
+                <span>🤯</span><span>煩亂</span>
+              </button>
+              <button onclick="selectMoodWord('恐慌', '😨', '五感著陸練習')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-rose-200 text-stone-700 text-xs font-bold hover:border-rose-400 transition-all flex items-center gap-1">
+                <span>😨</span><span>恐慌</span>
+              </button>
+              <button onclick="selectMoodWord('易怒', '😤', '深呼吸調息')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-rose-200 text-stone-700 text-xs font-bold hover:border-rose-400 transition-all flex items-center gap-1">
+                <span>😤</span><span>易怒</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 分類 2：疲憊・低落時 -->
+          <div class="bg-sky-50/70 p-2.5 rounded-2xl border border-sky-100 space-y-1.5">
+            <span class="text-[10.5px] font-black text-sky-800 flex items-center gap-1.5">
+              <span>🌧️</span><span>疲憊・低落時</span>
+            </span>
+            <div class="flex flex-wrap gap-1.5">
+              <button onclick="selectMoodWord('無力感', '🫠', '五感著陸練習')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-sky-200 text-stone-700 text-xs font-bold hover:border-sky-400 transition-all flex items-center gap-1">
+                <span>🫠</span><span>無力感</span>
+              </button>
+              <button onclick="selectMoodWord('身心疲憊', '😮‍💨', '共振 5-5 呼吸')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-sky-200 text-stone-700 text-xs font-bold hover:border-sky-400 transition-all flex items-center gap-1">
+                <span>😮‍💨</span><span>身心疲憊</span>
+              </button>
+              <button onclick="selectMoodWord('迷惘', '🌫️', '五感著陸練習')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-sky-200 text-stone-700 text-xs font-bold hover:border-sky-400 transition-all flex items-center gap-1">
+                <span>🌫️</span><span>迷惘</span>
+              </button>
+              <button onclick="selectMoodWord('沮喪', '🥺', 'BSRS-5 心情溫度計')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-sky-200 text-stone-700 text-xs font-bold hover:border-sky-400 transition-all flex items-center gap-1">
+                <span>🥺</span><span>沮喪</span>
+              </button>
+              <button onclick="selectMoodWord('孤單', '🍂', '五感著陸練習')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-sky-200 text-stone-700 text-xs font-bold hover:border-sky-400 transition-all flex items-center gap-1">
+                <span>🍂</span><span>孤單</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 分類 3：平靜・舒緩時 -->
+          <div class="bg-emerald-50/70 p-2.5 rounded-2xl border border-emerald-100 space-y-1.5">
+            <span class="text-[10.5px] font-black text-emerald-800 flex items-center gap-1.5">
+              <span>🌿</span><span>平靜・舒緩時</span>
+            </span>
+            <div class="flex flex-wrap gap-1.5">
+              <button onclick="selectMoodWord('平靜', '😌', '共振 5-5 呼吸')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-emerald-200 text-stone-700 text-xs font-bold hover:border-emerald-400 transition-all flex items-center gap-1">
+                <span>😌</span><span>平靜</span>
+              </button>
+              <button onclick="selectMoodWord('安穩', '🪴', 'HBT 脈搏追蹤')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-emerald-200 text-stone-700 text-xs font-bold hover:border-emerald-400 transition-all flex items-center gap-1">
+                <span>🪴</span><span>安穩</span>
+              </button>
+              <button onclick="selectMoodWord('釋懷', '🍃', '放鬆深呼吸')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-emerald-200 text-stone-700 text-xs font-bold hover:border-emerald-400 transition-all flex items-center gap-1">
+                <span>🍃</span><span>釋懷</span>
+              </button>
+              <button onclick="selectMoodWord('放鬆', '☁️', '心靈放鬆站')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-emerald-200 text-stone-700 text-xs font-bold hover:border-emerald-400 transition-all flex items-center gap-1">
+                <span>☁️</span><span>放鬆</span>
+              </button>
+              <button onclick="selectMoodWord('感恩', '🤲', '共振 5-5 呼吸')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-emerald-200 text-stone-700 text-xs font-bold hover:border-emerald-400 transition-all flex items-center gap-1">
+                <span>🤲</span><span>感恩</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 分類 4：充實・愉悅時 -->
+          <div class="bg-amber-50/70 p-2.5 rounded-2xl border border-amber-100 space-y-1.5">
+            <span class="text-[10.5px] font-black text-amber-900 flex items-center gap-1.5">
+              <span>☀️</span><span>充實・愉悅時</span>
+            </span>
+            <div class="flex flex-wrap gap-1.5">
+              <button onclick="selectMoodWord('充實', '✨', 'HBT 脈搏追蹤')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-amber-200 text-stone-700 text-xs font-bold hover:border-amber-400 transition-all flex items-center gap-1">
+                <span>✨</span><span>充實</span>
+              </button>
+              <button onclick="selectMoodWord('專注', '🎯', '箱式 4-4-4-4 呼吸')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-amber-200 text-stone-700 text-xs font-bold hover:border-amber-400 transition-all flex items-center gap-1">
+                <span>🎯</span><span>專注</span>
+              </button>
+              <button onclick="selectMoodWord('雀躍', '🥰', 'HBT 脈搏追蹤')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-amber-200 text-stone-700 text-xs font-bold hover:border-amber-400 transition-all flex items-center gap-1">
+                <span>🥰</span><span>雀躍</span>
+              </button>
+              <button onclick="selectMoodWord('期待', '🌟', '共振 5-5 呼吸')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-amber-200 text-stone-700 text-xs font-bold hover:border-amber-400 transition-all flex items-center gap-1">
+                <span>🌟</span><span>期待</span>
+              </button>
+              <button onclick="selectMoodWord('自信', '💪', '箱式 4-4-4-4 呼吸')" class="mood-chip px-2.5 py-1.5 rounded-xl bg-white border border-amber-200 text-stone-700 text-xs font-bold hover:border-amber-400 transition-all flex items-center gap-1">
+                <span>💪</span><span>自信</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 動態心理學微解析與智能推薦區塊 -->
+        <div id="moodAnalysisCard" class="hidden p-3.5 rounded-2xl bg-white border border-amber-300 space-y-2 shadow-xs transition-all">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs font-bold text-stone-500">當前已選擇：</span>
+              <span id="selectedMoodBadge" class="text-xs font-black px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 flex items-center gap-1">--</span>
+            </div>
+            <span class="text-[9.5px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">智能配對練習</span>
+          </div>
+
+          <p id="selectedMoodInsight" class="text-xs text-stone-700 leading-relaxed font-medium">
+            點擊上方任意標籤，系統將為您生成心理學微調解讀。
+          </p>
+
+          <div class="pt-1 border-t border-stone-100">
+            <label for="moodJournalInput" class="text-[10px] font-bold text-stone-500 block mb-1">
+              留一句話給當下的自己（選填）：
+            </label>
+            <input 
+              type="text" 
+              id="moodJournalInput" 
+              maxlength="40" 
+              placeholder="例如：剛結束忙碌會議，給自己片刻安靜..."
+              class="w-full text-xs p-2 rounded-xl bg-stone-50 border border-stone-200 focus:outline-none focus:border-amber-400 focus:bg-white transition-colors"
+            />
+          </div>
+
+          <div class="flex gap-2 pt-1">
+            <button onclick="saveMoodCheckIn(false)" class="flex-1 py-2 rounded-xl bg-stone-100 hover:bg-stone-200 text-xs font-bold text-stone-700 transition-colors">
+              僅記錄心情
+            </button>
+            <button onclick="saveMoodCheckIn(true)" id="moodGoPracticeBtn" class="flex-1 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-black shadow-xs transition-colors flex items-center justify-center gap-1">
+              <span>✨</span><span>記錄並前往推薦練習</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-3 bg-white border-t border-stone-200/80">
+        <button onclick="closeModal('moodModal')" class="w-full py-2.5 rounded-2xl bg-stone-100 hover:bg-stone-200 text-xs font-bold text-stone-700 transition-colors">
+          完成・返回首頁
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. 身心覺察站彈窗 (HBT 脈搏心律檢測) -->
+  <div id="biofeedbackModal" class="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-200">
+    <div class="bg-[#faf7f2] border border-stone-200 rounded-[32px] w-full max-w-md max-h-[90vh] flex flex-col shadow-2xl overflow-hidden transform scale-95 transition-transform duration-200 text-stone-800" id="biofeedbackModalContent">
+      <div class="p-4 bg-white border-b border-stone-200/80 flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-full bg-sky-100 flex items-center justify-center text-xs text-sky-700">💓</div>
+          <h3 class="text-sm font-black text-stone-800">身心覺察站 ｜ 脈搏心律檢測</h3>
+        </div>
+        <button onclick="closeModal('biofeedbackModal')" class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 hover:text-stone-900 font-bold">&times;</button>
+      </div>
+
+      <div class="p-4 overflow-y-auto space-y-3 flex-1 flex flex-col items-center text-center">
+        <div class="w-full bg-amber-50 rounded-2xl p-3 text-left border-l-4 border-amber-500 shadow-sm">
+          <div class="flex items-center justify-between mb-1 pb-1 border-b border-amber-200/60">
+            <span class="text-xs font-bold text-amber-900 flex items-center gap-1.5">
+              <span>🧘</span><span>測前溫馨提醒（請先靜坐片刻）</span>
+            </span>
+            <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full text-[8.5px] font-bold">很重要</span>
+          </div>
+          <p class="text-[10.5px] text-stone-600 leading-relaxed font-medium">
+            建議在<strong>安靜坐下休息 2～3 分鐘</strong>後再開始測量。咖啡、走動或緊張會使心率自然偏快，數值僅供當下自我覺察。
+          </p>
+        </div>
+
+        <!-- 雙格向量圖解示範 -->
+        <div class="w-full bg-white rounded-2xl p-2.5 text-left border border-stone-200/80 shadow-sm">
+          <div class="flex items-center justify-between text-[11px] font-bold text-stone-700 mb-1.5 px-1">
+            <span class="flex items-center gap-1"><span>📍</span><span>正確觸摸位置（二選一，食指與中指併攏輕貼）</span></span>
+            <span class="bg-emerald-50 text-emerald-800 px-1.5 py-0.5 rounded text-[8.5px] font-bold">脈動示範</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <!-- ① 頸側動脈 -->
+            <div class="bg-stone-50/90 rounded-xl p-2 border border-stone-200/80 flex flex-col items-center">
+              <div class="w-full h-24 relative flex items-center justify-center">
+                <svg class="w-full h-full" viewBox="0 0 140 100" fill="none">
+                  <path d="M 28 10 C 35 10, 42 12, 46 16 C 48 18, 48 24, 46 28 L 52 38 C 53 40, 52 42, 50 42 L 46 42 C 48 45, 47 48, 45 49 C 48 53, 46 56, 42 57 C 38 58, 36 62, 38 68 C 40 76, 44 88, 46 95" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  <path d="M 28 10 C 18 12, 12 22, 12 36 C 12 50, 15 70, 16 95" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M 24 38 C 22 36, 18 38, 18 43 C 18 49, 23 50, 24 47" stroke="#64748b" stroke-width="1.8" stroke-linecap="round" fill="#fed7aa" fill-opacity="0.3"/>
+                  <path d="M 44 60 C 47 62, 47 65, 43 67" stroke="#cbd5e1" stroke-width="1.8" stroke-linecap="round"/>
+                  <text x="54" y="60" font-size="7" fill="#64748b" font-weight="bold">喉結</text>
+
+                  <g transform="translate(34, 66)">
+                    <circle cx="0" cy="0" r="10" fill="#f43f5e" opacity="0.25" class="breath-live-anim"/>
+                    <circle cx="0" cy="0" r="4.5" fill="#f43f5e"/>
+                    <circle cx="0" cy="0" r="15" stroke="#f43f5e" stroke-width="1.2" stroke-dasharray="2 2" fill="none" opacity="0.6" class="breath-live-anim"/>
+                  </g>
+
+                  <path d="M 88 62 H 37 C 34 62, 34 66, 37 66 H 88" fill="#fed7aa" stroke="#ea580c" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M 88 67 H 38 C 35 67, 35 71, 38 71 H 88" fill="#fed7aa" stroke="#ea580c" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M 88 62 C 95 62, 102 65, 110 70 L 115 88" stroke="#ea580c" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                  <path d="M 88 71 C 94 74, 98 80, 102 90" stroke="#ea580c" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                </svg>
+              </div>
+              <span class="text-[10px] font-black text-stone-800 mt-0.5">① 頸側動脈（側臉示意）</span>
+              <span class="text-[8px] text-stone-500 font-medium">食指與中指輕貼喉結旁凹陷處</span>
+            </div>
+
+            <!-- ② 手腕橈動脈 -->
+            <div class="bg-stone-50/90 rounded-xl p-2 border border-stone-200/80 flex flex-col items-center">
+              <div class="w-full h-24 relative flex items-center justify-center">
+                <svg class="w-full h-full" viewBox="0 0 140 100" fill="none">
+                  <path d="M 30 95 L 30 62 C 29 48, 30 38, 35 38 C 38 38, 40 43, 41 46 C 42 34, 43 25, 48 25 C 52 25, 54 32, 55 35 C 56 26, 58 18, 63 18 C 68 18, 70 26, 71 33 C 72 26, 74 25, 78 26 C 82 27, 83 36, 83 48 C 88 47, 96 48, 98 52 C 100 56, 96 61, 86 63 C 83 67, 80 75, 80 95 Z" fill="#fed7aa" fill-opacity="0.18"/>
+                  <path d="M 30 95 L 30 60 C 29 48, 30 38, 35 38 C 38 38, 40 43, 41 47" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M 41 47 C 42 34, 43 25, 48 25 C 52 25, 54 32, 55 36" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M 55 36 C 56 26, 58 18, 63 18 C 68 18, 70 26, 71 34" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M 71 34 C 72 26, 74 25, 78 26 C 82 27, 83 36, 83 48" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M 83 48 C 88 47, 97 48, 98 52 C 99 56, 95 61, 85 63 C 81 67, 80 75, 80 95" stroke="#475569" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M 43 54 C 54 57, 68 56, 78 52" stroke="#cbd5e1" stroke-width="1.2" stroke-linecap="round"/>
+                  <path d="M 72 58 C 76 64, 76 72, 75 78" stroke="#cbd5e1" stroke-width="1.2" stroke-linecap="round"/>
+                  <text x="96" y="46" font-size="7" fill="#0d9488" font-weight="bold">拇指側</text>
+
+                  <g transform="translate(71, 74)">
+                    <circle cx="0" cy="0" r="9" fill="#10b981" opacity="0.25" class="breath-live-anim"/>
+                    <circle cx="0" cy="0" r="4.5" fill="#10b981"/>
+                    <circle cx="0" cy="0" r="14" stroke="#10b981" stroke-width="1.2" stroke-dasharray="2 2" fill="none" opacity="0.6" class="breath-live-anim"/>
+                  </g>
+
+                  <path d="M 112 80 L 74 71 C 71 70, 71 74, 74 75 L 109 84" fill="#fed7aa" stroke="#059669" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M 109 84 L 75 76 C 72 75, 72 79, 75 80 L 106 89" fill="#fed7aa" stroke="#059669" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M 112 80 C 117 83, 120 88, 123 95" stroke="#059669" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <span class="text-[10px] font-black text-stone-800 mt-0.5">② 手腕橈動脈（手腕示意）</span>
+              <span class="text-[8px] text-stone-500 font-medium">輕按手腕靠近大拇指側凹陷</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full bg-white rounded-2xl p-2.5 text-left text-[10.5px] text-stone-600 space-y-1 border border-stone-200/80 shadow-sm">
+          <div class="font-bold text-stone-800 flex items-center justify-between">
+            <span>💡 3 步驟測量心跳節奏：</span>
+            <span class="bg-sky-50 text-sky-800 px-1.5 py-0.5 rounded text-[8px] font-mono font-bold">HBT 心跳追蹤法</span>
+          </div>
+          <p>1. 食指與中指輕貼<strong>喉結外側凹陷</strong>或<strong>手腕大拇指側</strong>。</p>
+          <p>2. 心跳每跳一下，就配合節奏<strong>輕按一下愛心按鈕</strong>。</p>
+          <p>3. 連續敲擊 <strong>15 次</strong>，系統自動捨棄前段適應誤差並演算心率！</p>
+        </div>
+
+        <div class="w-full flex flex-col items-center py-1">
+          <button id="tapHeartBtn" onclick="registerHeartTap()" class="w-24 h-24 rounded-full bg-[#fddfd8] border-4 border-white shadow-lg flex flex-col items-center justify-center active:scale-95 transition-transform duration-100 cursor-pointer group">
+            <svg class="w-9 h-9 text-rose-500 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            <span class="text-[9px] font-black text-rose-700 tracking-wider mt-1 uppercase">跳一下・點一下</span>
+          </button>
+
+          <div class="w-full max-w-[220px] mt-3">
+            <div class="flex items-center justify-between text-[10px] text-stone-500 mb-1">
+              <span id="tapPhaseHint" class="font-bold">敲擊進度</span>
+              <span id="tapCountDisplay" class="font-mono font-bold text-rose-600">已記錄 0 / 15 次</span>
+            </div>
+            <div class="w-full h-2.5 rounded-full bg-stone-200 overflow-hidden p-0.5">
+              <div id="tapProgressBar" class="h-full bg-gradient-to-r from-rose-400 to-amber-400 rounded-full w-0 transition-all duration-200"></div>
+            </div>
+          </div>
+
+          <div class="mt-2">
+            <span class="text-[9px] text-stone-400 block">即時推估心率</span>
+            <span id="tapLiveBpm" class="text-xl font-mono font-black text-stone-800">-- <span class="text-xs font-normal text-stone-500">BPM</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-3 bg-white border-t border-stone-200/80">
+        <button onclick="closeModal('biofeedbackModal')" class="w-full py-2.5 rounded-2xl bg-stone-100 hover:bg-stone-200 text-xs font-bold text-stone-700 transition-colors">
+          完成・返回首頁
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 脈搏報表彈窗 -->
+  <div id="bioReportModal" class="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-200">
+    <div class="bg-[#faf7f2] border border-stone-200 rounded-[32px] w-full max-w-md p-5 flex flex-col shadow-2xl overflow-hidden transform scale-95 transition-transform duration-200 text-stone-800 space-y-3.5" id="bioReportModalContent">
+      <div class="flex items-center justify-between pb-2.5 border-b border-stone-200">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">🌿</span>
+          <h3 class="text-base font-black text-stone-900">脈搏節奏覺察回饋</h3>
+        </div>
+        <button onclick="closeModal('bioReportModal')" class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 hover:text-stone-900 font-bold">&times;</button>
+      </div>
+
+      <div class="flex justify-center">
+        <span id="reportConfidenceBadge" class="bg-emerald-50 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold border border-emerald-200">
+          敲擊節奏：非常均勻規律
+        </span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 p-4 rounded-3xl bg-white border border-stone-200 items-center text-center shadow-sm">
+        <div class="border-r border-stone-200 pr-2">
+          <span class="text-xs text-stone-400 block font-medium mb-0.5">預估心率節奏</span>
+          <div class="flex items-baseline justify-center gap-1">
+            <span id="reportAvgBpm" class="text-4xl font-black font-mono text-stone-900">72</span>
+            <span class="text-xs text-stone-400 font-mono">次/分</span>
+          </div>
+          <span class="text-[9px] text-stone-400 block mt-0.5">手動敲擊推估值</span>
+        </div>
+        <div class="pl-2">
+          <span class="text-xs text-stone-400 block font-medium mb-1">當前節律感受</span>
+          <span id="reportStateBadge" class="inline-block text-sm font-bold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800">
+            平緩舒適
+          </span>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-3.5 border border-stone-200 shadow-sm">
+        <p id="reportNarrative" class="text-sm text-stone-700 leading-relaxed font-medium">
+          感受到的脈搏節奏相對平緩。不妨給自己片刻時間，輕輕閉上眼，留意當下身體的放鬆感與自然呼吸。
+        </p>
+      </div>
+
+      <div class="p-2.5 rounded-xl bg-sky-50 text-[10px] text-sky-900 leading-relaxed flex items-start gap-2 border border-sky-200/60">
+        <span class="font-bold">ℹ️</span>
+        <span>本工具基於 HBT 原理設計，旨在引導當下內受感覺察。心率隨作息環境起伏，<strong>數值僅供個人自我覺察參考，非醫療診斷依據</strong>。</span>
+      </div>
+
+      <div class="flex gap-2 pt-1">
+        <button onclick="retestFromReport()" class="flex-1 py-2.5 rounded-2xl bg-stone-100 hover:bg-stone-200 text-xs font-bold text-stone-700 transition-colors">
+          重新測量
+        </button>
+        <button onclick="closeModal('bioReportModal'); closeModal('biofeedbackModal'); openModal('breathingModal');" class="flex-1 py-2.5 rounded-2xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold flex items-center justify-center gap-1 shadow-md transition-colors">
+          <span>🌿</span><span>前往深呼吸調節</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. 心情溫度計彈窗 (BSRS-5) -->
+  <div id="bsrsModal" class="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-200">
+    <div class="bg-[#faf7f2] border border-stone-200 rounded-[32px] w-full max-w-md max-h-[90vh] flex flex-col shadow-2xl overflow-hidden transform scale-95 transition-transform duration-200 text-stone-800" id="bsrsModalContent">
+      <div class="p-4 bg-white border-b border-stone-200 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">🌡️</span>
+          <div>
+            <h3 class="text-sm font-black text-stone-900">心情溫度計 ｜ BSRS-5 自評</h3>
+            <p class="text-[9.5px] text-stone-500 font-medium">評估過去一星期身心負荷</p>
+          </div>
+        </div>
+        <button onclick="closeModal('bsrsModal')" class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 hover:text-stone-900 font-bold">&times;</button>
+      </div>
+
+      <div class="p-4 overflow-y-auto space-y-3 flex-1">
+        <div id="bsrsQuestionsForm" class="space-y-2.5">
+          <div class="p-2.5 bg-amber-50 border border-amber-200 rounded-2xl text-[11px] text-amber-900 font-medium">
+            請回想<strong>在過去一星期（包括今天）</strong>，您是否常因以下問題感到困擾：
+          </div>
+
+          <div class="p-3 rounded-2xl bg-white border border-stone-200 space-y-1.5 shadow-sm">
+            <div class="text-[11px] font-bold text-stone-800">1. 睡眠困難，譬如難以入睡、易醒或早醒</div>
+            <div class="grid grid-cols-5 gap-1.5 text-center">
+              <button type="button" onclick="selectBsrsOption(1, 0)" class="bsrs-opt-1 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">0<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">完全沒有</span></button>
+              <button type="button" onclick="selectBsrsOption(1, 1)" class="bsrs-opt-1 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">1<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">輕微</span></button>
+              <button type="button" onclick="selectBsrsOption(1, 2)" class="bsrs-opt-1 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">2<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">中等程度</span></button>
+              <button type="button" onclick="selectBsrsOption(1, 3)" class="bsrs-opt-1 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">3<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">厲害</span></button>
+              <button type="button" onclick="selectBsrsOption(1, 4)" class="bsrs-opt-1 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">4<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">非常厲害</span></button>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-2xl bg-white border border-stone-200 space-y-1.5 shadow-sm">
+            <div class="text-[11px] font-bold text-stone-800">2. 感覺緊張不安或焦慮</div>
+            <div class="grid grid-cols-5 gap-1.5 text-center">
+              <button type="button" onclick="selectBsrsOption(2, 0)" class="bsrs-opt-2 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">0<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">完全沒有</span></button>
+              <button type="button" onclick="selectBsrsOption(2, 1)" class="bsrs-opt-2 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">1<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">輕微</span></button>
+              <button type="button" onclick="selectBsrsOption(2, 2)" class="bsrs-opt-2 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">2<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">中等程度</span></button>
+              <button type="button" onclick="selectBsrsOption(2, 3)" class="bsrs-opt-2 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">3<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">厲害</span></button>
+              <button type="button" onclick="selectBsrsOption(2, 4)" class="bsrs-opt-2 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">4<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">非常厲害</span></button>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-2xl bg-white border border-stone-200 space-y-1.5 shadow-sm">
+            <div class="text-[11px] font-bold text-stone-800">3. 覺得容易苦惱、煩躁或動怒</div>
+            <div class="grid grid-cols-5 gap-1.5 text-center">
+              <button type="button" onclick="selectBsrsOption(3, 0)" class="bsrs-opt-3 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">0<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">完全沒有</span></button>
+              <button type="button" onclick="selectBsrsOption(3, 1)" class="bsrs-opt-3 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">1<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">輕微</span></button>
+              <button type="button" onclick="selectBsrsOption(3, 2)" class="bsrs-opt-3 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">2<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">中等程度</span></button>
+              <button type="button" onclick="selectBsrsOption(3, 3)" class="bsrs-opt-3 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">3<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">厲害</span></button>
+              <button type="button" onclick="selectBsrsOption(3, 4)" class="bsrs-opt-3 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">4<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">非常厲害</span></button>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-2xl bg-white border border-stone-200 space-y-1.5 shadow-sm">
+            <div class="text-[11px] font-bold text-stone-800">4. 感覺憂鬱、心情低落或沮喪</div>
+            <div class="grid grid-cols-5 gap-1.5 text-center">
+              <button type="button" onclick="selectBsrsOption(4, 0)" class="bsrs-opt-4 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">0<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">完全沒有</span></button>
+              <button type="button" onclick="selectBsrsOption(4, 1)" class="bsrs-opt-4 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">1<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">輕微</span></button>
+              <button type="button" onclick="selectBsrsOption(4, 2)" class="bsrs-opt-4 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">2<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">中等程度</span></button>
+              <button type="button" onclick="selectBsrsOption(4, 3)" class="bsrs-opt-4 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">3<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">厲害</span></button>
+              <button type="button" onclick="selectBsrsOption(4, 4)" class="bsrs-opt-4 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">4<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">非常厲害</span></button>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-2xl bg-white border border-stone-200 space-y-1.5 shadow-sm">
+            <div class="text-[11px] font-bold text-stone-800">5. 覺得自己比不上別人、缺乏自信</div>
+            <div class="grid grid-cols-5 gap-1.5 text-center">
+              <button type="button" onclick="selectBsrsOption(5, 0)" class="bsrs-opt-5 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">0<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">完全沒有</span></button>
+              <button type="button" onclick="selectBsrsOption(5, 1)" class="bsrs-opt-5 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">1<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">輕微</span></button>
+              <button type="button" onclick="selectBsrsOption(5, 2)" class="bsrs-opt-5 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">2<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">中等程度</span></button>
+              <button type="button" onclick="selectBsrsOption(5, 3)" class="bsrs-opt-5 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">3<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">厲害</span></button>
+              <button type="button" onclick="selectBsrsOption(5, 4)" class="bsrs-opt-5 py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200">4<br><span class="text-[7.5px] font-medium text-stone-500 block leading-tight mt-0.5">非常厲害</span></button>
+            </div>
+          </div>
+
+          <button onclick="calculateBsrsScore()" id="bsrsSubmitBtn" class="w-full py-3 rounded-2xl font-black text-xs text-amber-950 bg-amber-300 hover:bg-amber-400 shadow-md transition-colors">
+            計算心情溫度計總分
+          </button>
+        </div>
+
+        <div id="bsrsResultCard" class="hidden space-y-3">
+          <div class="p-4 rounded-3xl bg-white border border-stone-200 text-center space-y-2.5 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-stone-400">當前心情溫度：</span>
+              <span id="bsrsStatusBadge" class="bg-emerald-50 text-emerald-800 px-2.5 py-0.5 rounded-full text-[11px] font-bold border border-emerald-200">良好平穩</span>
+            </div>
+            <div class="py-1 flex items-baseline justify-center gap-1">
+              <span id="bsrsScoreVal" class="text-4xl font-black font-mono text-stone-900">0</span>
+              <span class="text-xs font-bold text-stone-400">/ 20 分</span>
+            </div>
+            <div class="space-y-1">
+              <div class="w-full h-3 rounded-full bg-stone-100 border border-stone-200 p-0.5 overflow-hidden flex">
+                <div id="bsrsThermometerBar" class="h-full bg-gradient-to-r from-emerald-400 via-amber-400 to-rose-500 rounded-full transition-all duration-700 w-0"></div>
+              </div>
+              <div class="flex justify-between text-[8px] text-stone-400 font-mono">
+                <span>0 分 (平穩)</span><span>6 分 (輕度)</span><span>10 分 (中度)</span><span>15+ (重度)</span>
+              </div>
+            </div>
+            <div id="bsrsAnalysisText" class="text-[11px] text-stone-600 leading-relaxed text-left bg-stone-50 p-3 rounded-2xl border border-stone-200">
+              身心適應良好，目前情緒平穩！
+            </div>
+          </div>
+
+          <div class="p-3 rounded-2xl bg-rose-50 text-[10.5px] text-rose-950 space-y-1 border border-rose-200/70">
+            <div class="font-bold text-rose-900 flex items-center gap-1"><span>🤝 澳門在地關懷支持資源</span></div>
+            <p>• 澳門明愛生命熱線（24小時）：<a href="tel:28525222" class="text-stone-900 font-mono font-bold hover:text-rose-600 underline">2852 5222</a></p>
+            <p>• 心晴熱線（24小時）：<a href="tel:28712356" class="text-stone-900 font-mono font-bold hover:text-rose-600 underline">2871 2356</a></p>
+          </div>
+
+          <div class="flex gap-2">
+            <button onclick="resetBsrsTest()" class="flex-1 py-2.5 rounded-2xl bg-stone-100 hover:bg-stone-200 text-xs font-bold text-stone-600 transition-colors">重新自評</button>
+            <button onclick="closeModal('bsrsModal'); openModal('breathingModal');" class="flex-1 py-2.5 rounded-2xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold transition-colors shadow-sm">🌿 前往深呼吸</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-3 bg-white border-t border-stone-200">
+        <button onclick="closeModal('bsrsModal')" class="w-full py-2.5 rounded-2xl bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-bold transition-colors">
+          完成・返回首頁
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 身心安定站彈窗 (呼吸引導器) -->
+  <div id="breathingModal" class="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-200">
+    <div class="bg-[#faf7f2] border border-stone-200 rounded-[32px] w-full max-w-md p-5 flex flex-col items-center shadow-2xl overflow-hidden relative transform scale-95 transition-transform duration-200 text-stone-800" id="breathingModalContent">
+      <div class="w-full flex items-center justify-between pb-3 border-b border-stone-200">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <h3 class="text-sm font-black text-stone-900">身心安定站 ｜ 呼吸引導</h3>
+        </div>
+        <button onclick="closeModal('breathingModal')" class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 hover:text-stone-900 font-bold">&times;</button>
+      </div>
+
+      <div class="w-full mt-3 flex items-center justify-center">
+        <div class="bg-stone-100 p-1 rounded-2xl flex gap-1 text-[11px] font-bold border border-stone-200">
+          <button id="visModeOrb" onclick="setVisualMode('orb')" class="px-3 py-1 rounded-xl bg-white text-emerald-800 font-bold shadow-sm">🫧 舒緩光球</button>
+          <button id="visModeWave" onclick="setVisualMode('wave')" class="px-3 py-1 rounded-xl text-stone-500 font-medium hover:text-stone-800">📈 波形軌跡</button>
+        </div>
+      </div>
+
+      <div id="visualOrbContainer" class="relative w-48 h-48 flex items-center justify-center my-2">
+        <div class="absolute w-40 h-40 rounded-full bg-emerald-100/60 blur-md"></div>
+        <div id="breathCircle" class="w-24 h-24 rounded-full bg-gradient-to-tr from-emerald-200 to-teal-100 border-4 border-white flex items-center justify-center transition-all duration-700 ease-in-out cursor-pointer shadow-lg" onclick="toggleBreathingGuide()">
+          <span id="breathCenterLabel" class="text-xs font-black text-emerald-900 tracking-wider">開始</span>
+        </div>
+      </div>
+
+      <!-- 凹陷質感座標網格梯形波形儀表板 (符合截圖設計) -->
+      <div id="visualWaveContainer" class="w-full h-40 my-2.5 hidden relative wave-display-inset p-2.5 overflow-hidden cursor-pointer" onclick="toggleBreathingGuide()">
+        <canvas id="breathWaveCanvas" class="w-full h-full block rounded-2xl"></canvas>
+      </div>
+
+      <div class="text-center">
+        <div id="breathPhaseText" class="text-base font-black text-stone-800">準備開始</div>
+        <div class="flex items-center justify-center gap-1 mt-0.5">
+          <span id="breathSecondsText" class="text-2xl font-black font-mono text-emerald-700">0</span>
+          <span class="text-xs text-stone-400">秒</span>
+        </div>
+        <!-- 練習總時間倒數徽章 -->
+        <div id="breathTotalTimerBadge" class="hidden mt-1.5 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-semibold">
+          <span>⏱️ 剩餘時間</span>
+          <span id="breathTotalTimeRemaining" class="font-mono font-bold">03:00</span>
+        </div>
+      </div>
+
+      <!-- 練習時長自訂選擇器 -->
+      <div class="w-full mt-2.5 p-2 rounded-2xl bg-white border border-stone-200 text-xs shadow-sm">
+        <div class="flex items-center justify-between">
+          <span class="text-stone-600 font-bold text-[10.5px]">⏱️ 練習時長</span>
+          <div class="flex items-center gap-1">
+            <button onclick="setPracticeDuration(1)" id="dur1" class="dur-btn px-2 py-0.5 rounded-lg text-[10px] text-stone-600 hover:bg-stone-100">1 分鐘</button>
+            <button onclick="setPracticeDuration(3)" id="dur3" class="dur-btn px-2 py-0.5 rounded-lg text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">3 分鐘</button>
+            <button onclick="setPracticeDuration(5)" id="dur5" class="dur-btn px-2 py-0.5 rounded-lg text-[10px] text-stone-600 hover:bg-stone-100">5 分鐘</button>
+            <button onclick="setPracticeDuration(0)" id="dur0" class="dur-btn px-2 py-0.5 rounded-lg text-[10px] text-stone-600 hover:bg-stone-100">自由練</button>
+            <button onclick="toggleCustomDurationInput()" id="durCustom" class="dur-btn px-2 py-0.5 rounded-lg text-[10px] text-stone-600 hover:bg-stone-100">✏️ 自訂</button>
+          </div>
+        </div>
+
+        <!-- 自訂分鐘展開盒 -->
+        <div id="customDurationBox" class="hidden mt-2 pt-2 border-t border-stone-100 flex items-center justify-between text-[11px]">
+          <span class="text-stone-500">自訂練習時間：</span>
+          <div class="flex items-center gap-2">
+            <button onclick="adjustCustomMinutes(-1)" class="w-5 h-5 rounded-md bg-stone-100 flex items-center justify-center font-bold text-stone-700 hover:bg-stone-200">-</button>
+            <span class="font-mono font-bold text-stone-800"><span id="customMinutesDisplay">10</span> 分鐘</span>
+            <button onclick="adjustCustomMinutes(1)" class="w-5 h-5 rounded-md bg-stone-100 flex items-center justify-center font-bold text-stone-700 hover:bg-stone-200">+</button>
+            <button onclick="applyCustomDuration()" class="px-2 py-0.5 rounded-md bg-stone-900 text-white font-bold text-[10px]">設定</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full mt-2 flex items-center justify-center gap-1.5 text-xs">
+        <button onclick="setBreathingPattern('box')" id="btnBox" class="px-2.5 py-1 rounded-xl bg-emerald-100 text-emerald-800 font-bold border border-emerald-200">箱式 4-4-4-4</button>
+        <button onclick="setBreathingPattern('coherent')" id="btnCoherent" class="px-2.5 py-1 rounded-xl bg-white text-stone-600 font-medium border border-stone-200">共振 5-5</button>
+        <button onclick="setBreathingPattern('relax')" id="btnRelax" class="px-2.5 py-1 rounded-xl bg-white text-stone-600 font-medium border border-stone-200">放鬆 4-7-8</button>
+      </div>
+
+      <!-- 舒緩 Lo-Fi 音樂聲景選擇器 -->
+      <div class="w-full mt-2.5 p-2 rounded-2xl bg-white border border-stone-200 flex items-center justify-between text-xs shadow-sm">
+        <span class="text-stone-600 font-bold text-[10.5px] shrink-0">🎵 舒緩音樂</span>
+        <div class="flex items-center gap-1 overflow-x-auto pb-0.5">
+          <button onclick="setAmbientSound('none')" id="sndNone" class="px-2 py-0.5 rounded-lg text-[10px] font-bold bg-emerald-100 text-emerald-800 shrink-0">靜音</button>
+          <button onclick="setAmbientSound('lofi_chill')" id="sndLofiChill" class="px-2 py-0.5 rounded-lg text-[10px] text-stone-600 hover:bg-stone-100 shrink-0">☕ 午後Lo-Fi</button>
+          <button onclick="setAmbientSound('lofi_rain')" id="sndLofiRain" class="px-2 py-0.5 rounded-lg text-[10px] text-stone-600 hover:bg-stone-100 shrink-0">🌧️ 雨夜慢調</button>
+          <button onclick="setAmbientSound('lofi_dream')" id="sndLofiDream" class="px-2 py-0.5 rounded-lg text-[10px] text-stone-600 hover:bg-stone-100 shrink-0">🌌 空靈氛圍</button>
+        </div>
+      </div>
+
+      <div class="w-full mt-3">
+        <button onclick="toggleBreathingGuide()" id="guideControlBtn" class="w-full py-2.5 rounded-2xl font-black text-xs text-emerald-950 bg-emerald-400 hover:bg-emerald-500 shadow-md transition-colors">
+          開始引導深呼吸
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. 心靈放鬆站彈窗 (著陸語音練習) -->
+  <div id="groundingModal" class="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-200">
+    <div class="bg-[#faf7f2] border border-stone-200 rounded-[32px] w-full max-w-md p-5 flex flex-col shadow-2xl relative transform scale-95 transition-transform duration-200 text-stone-800" id="groundingModalContent">
+      <div class="flex items-center justify-between pb-3 border-b border-stone-200">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-violet-500 animate-pulse"></span>
+          <h3 class="text-sm font-black text-stone-900">心靈放鬆站 ｜ 五感著陸引導</h3>
+        </div>
+        <button onclick="closeModal('groundingModal')" class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 hover:text-stone-900 font-bold">&times;</button>
+      </div>
+
+      <div class="mt-3 space-y-3">
+        <div class="p-3 rounded-2xl bg-violet-50/90 border border-violet-100 text-[11px] text-violet-950 leading-relaxed shadow-2xs">
+          <p class="font-bold text-violet-900 mb-0.5 flex items-center gap-1">
+            <span>🎧</span><span>五感著陸練習（Grounding Exercise）</span>
+          </p>
+          當感到思緒過載或緊繃時，透過溫柔的聲音引導，帶領眼、耳、觸覺重新連結當下安全的空間。
+        </div>
+
+        <!-- 沉浸式專屬深色音訊播放艙 (Meditation Audio Deck) -->
+        <div class="rounded-3xl p-3.5 bg-stone-900 text-white shadow-lg border border-stone-800 relative overflow-hidden flex flex-col gap-2.5">
+          <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-violet-600/30 rounded-full blur-2xl pointer-events-none"></div>
+
+          <div class="flex items-center justify-between relative z-10 px-0.5">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-lg bg-violet-500/30 border border-violet-400/40 flex items-center justify-center text-xs">
+                🎵
+              </div>
+              <div class="text-left leading-tight">
+                <span class="text-[11.5px] font-bold text-white block">五感著陸練習引導</span>
+                <span class="text-[9.5px] text-stone-400">澳門心理學會 · 5 分 17 秒</span>
+              </div>
+            </div>
+            <span class="text-[9.5px] font-semibold px-2 py-0.5 rounded-full bg-violet-400/20 text-violet-300 border border-violet-400/30">
+              線上直聽
+            </span>
+          </div>
+
+          <div class="w-full h-[152px] rounded-2xl overflow-hidden bg-black/60 border border-white/10 relative shadow-inner">
+            <iframe 
+              id="groundingIframePlayer"
+              src="https://drive.google.com/file/d/16IUCjed7lvxMRDD91G4377g2_L2n10Zo/preview" 
+              class="w-full h-full border-0" 
+              allow="autoplay"
+              loading="lazy"
+              title="澳門心理學會 - 著陸練習音訊">
+            </iframe>
+          </div>
+
+          <div class="flex items-center justify-between px-1 text-[10px] text-stone-400 relative z-10">
+            <span class="flex items-center gap-1">
+              <span>💡</span><span>點擊上方的 ▶ 播放鍵即可收聽</span>
+            </span>
+            <a href="https://drive.google.com/file/d/16IUCjed7lvxMRDD91G4377g2_L2n10Zo/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-violet-300 hover:text-white underline transition-colors flex items-center gap-0.5">
+              <span>備用鏈接</span><span>↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <button onclick="closeModal('groundingModal')" class="w-full mt-3 py-2.5 rounded-2xl bg-stone-100 hover:bg-stone-200 text-stone-800 font-bold text-xs transition-colors">
+        完成練習・返回
+      </button>
+    </div>
+  </div>
+
+  <!-- 5. 資源彈窗 (24小時熱線與網絡資料) -->
+  <div id="resourcesModal" class="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-200">
+    <div class="bg-[#faf7f2] border border-stone-200 rounded-[32px] w-full max-w-md p-5 flex flex-col shadow-2xl relative transform scale-95 transition-transform duration-200 text-stone-800" id="resourcesModalContent">
+      <div class="flex items-center justify-between pb-3 border-b border-stone-200">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+          <h3 class="text-sm font-black">24小時熱線 &amp; 心衛資源專區</h3>
+        </div>
+        <button onclick="closeModal('resourcesModal')" class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 hover:text-stone-900 font-bold">&times;</button>
+      </div>
+
+      <div class="mt-3 space-y-2.5 text-stone-700">
+        <div class="p-3 rounded-2xl bg-amber-50 border border-amber-200 text-[11px] leading-relaxed">
+          <p class="font-bold text-amber-900 mb-0.5">📁 本澳心理健康服務資源與熱線</p>
+          本專區轉載及整合本澳各領域之心理健康服務資源網絡（包括心理治療、輔導服務與 24 小時免費求助熱線），方便市民在有需要時及時尋求專業協助。
+        </div>
+
+        <div class="p-3 rounded-2xl bg-white border border-stone-200 space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-bold text-stone-800">本澳心理健康服務資源總覽</h4>
+            <a href="https://apm.org.mo/mental-health-resources" target="_blank" rel="noopener noreferrer" class="bg-amber-100 hover:bg-amber-200 px-2.5 py-1 rounded-xl text-[10.5px] font-bold text-amber-900 transition-colors">
+              前往 ↗
+            </a>
+          </div>
+          <p class="text-[10px] text-stone-500">學會整合之本澳心理治療、輔導服務及熱線資訊（學會原則上不提供直接個案諮詢）。</p>
+        </div>
+
+        <div class="p-3 rounded-2xl bg-white border border-stone-200 space-y-1.5 text-[11px] shadow-sm">
+          <div class="font-bold text-rose-800">📞 24 小時熱線服務直撥：</div>
+          <div class="flex justify-between items-center py-0.5">
+            <span>澳門明愛生命熱線：</span>
+            <a href="tel:28525222" class="font-mono font-bold text-stone-900 bg-stone-100 hover:bg-rose-50 hover:text-rose-600 px-2 py-0.5 rounded-md border border-stone-200">2852 5222</a>
+          </div>
+          <div class="flex justify-between items-center py-0.5">
+            <span>心晴熱線：</span>
+            <a href="tel:28712356" class="font-mono font-bold text-stone-900 bg-stone-100 hover:bg-rose-50 hover:text-rose-600 px-2 py-0.5 rounded-md border border-stone-200">2871 2356</a>
+          </div>
+        </div>
+      </div>
+
+      <button onclick="closeModal('resourcesModal')" class="w-full mt-3 py-2.5 rounded-2xl bg-stone-100 hover:bg-stone-200 text-stone-800 font-bold text-xs transition-colors">
+        返回首頁
+      </button>
+    </div>
+  </div>
+
+  <script>
+    /* ==========================================================================
+       1. 彈窗管理模組 (Modal Controller)
+       ========================================================================== */
+    function openModal(id) {
+      var modal = document.getElementById(id);
+      if (!modal) return;
+      var content = modal.querySelector('#' + id + 'Content') || modal.children[0];
+      
+      modal.classList.remove('hidden');
+      requestAnimationFrame(function() {
+        modal.classList.remove('opacity-0');
+        modal.classList.add('opacity-100');
+        if (content) {
+          content.classList.remove('scale-95');
+          content.classList.add('scale-100');
+        }
+      });
+
+      if (id === 'breathingModal' && typeof currentVisualMode !== 'undefined' && currentVisualMode === 'wave') {
+        setTimeout(function() {
+          resizeWaveCanvas();
+          drawWaveFrame();
+        }, 150);
+      }
+    }
+
+    function closeModal(id) {
+      var modal = document.getElementById(id);
+      if (!modal) return;
+      var content = modal.querySelector('#' + id + 'Content') || modal.children[0];
+      
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0');
+      if (content) {
+        content.classList.remove('scale-100');
+        content.classList.add('scale-95');
+      }
+
+      setTimeout(function() {
+        modal.classList.add('hidden');
+      }, 200);
+
+      if (id === 'breathingModal' && isBreathingActive) {
+        toggleBreathingGuide();
+      }
+    }
+
+    // 依據時間提供動態問候
+    function updateTimeGreeting() {
+      var hour = new Date().getHours();
+      var greetingEl = document.getElementById('timeGreeting');
+      if (!greetingEl) return;
+      if (hour < 6) {
+        greetingEl.textContent = '夜深了 · 給自己 3 分鐘平息思緒';
+      } else if (hour < 12) {
+        greetingEl.textContent = '晨光好 · 給自己 3 分鐘喚醒身心';
+      } else if (hour < 18) {
+        greetingEl.textContent = '午後微歇 · 給自己 3 分鐘重新連線';
+      } else {
+        greetingEl.textContent = '夜幕初降 · 給自己 3 分鐘卸下疲勞';
+      }
+    }
+    updateTimeGreeting();
+
+    /* ==========================================================================
+       2. Web Audio 合成器與 Lo-Fi 聲景引擎 (Sound Engine)
+       ========================================================================== */
+    var audioCtx = null;
+    var ambientSoundType = 'none';
+    var lofiTimer = null;
+    var ambientNoiseNode = null;
+    var ambientNoiseGain = null;
+    var ambientDroneNodes = [];
+    var lofiStepCounter = 0;
+
+    var CHILL_CHORDS = [
+      { bass: 87.31,  notes: [174.61, 220.00, 261.63, 329.63] }, // Fmaj7
+      { bass: 65.41,  notes: [130.81, 164.81, 196.00, 246.94] }, // Cmaj7
+      { bass: 73.42,  notes: [146.83, 174.61, 220.00, 261.63] }, // Dm7
+      { bass: 58.27,  notes: [116.54, 146.83, 174.61, 220.00] }  // Bbmaj7
+    ];
+
+    var RAIN_PIANO_PHRASES = [
+      [220.00, 261.63, 329.63, 493.88, 392.00], // Am9
+      [174.61, 220.00, 261.63, 329.63, 293.66], // Fmaj7
+      [146.83, 174.61, 220.00, 261.63, 440.00], // Dm9
+      [164.81, 207.65, 246.94, 329.63, 246.94]  // E7
+    ];
+
+    var CRYSTAL_BELL_FREQS = [523.25, 587.33, 659.25, 783.99, 880.00, 1046.50, 1174.66, 1318.51];
+
+    function initAudio() {
+      if (!audioCtx) {
+        var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) {
+          audioCtx = new AudioContextClass();
+        }
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function setAmbientSound(type) {
+      ambientSoundType = type;
+      ['sndNone', 'sndLofiChill', 'sndLofiRain', 'sndLofiDream'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.className = 'px-2 py-0.5 rounded-lg text-[10px] text-stone-600 hover:bg-stone-100 shrink-0';
+      });
+      var activeMap = { 
+        none: 'sndNone', 
+        lofi_chill: 'sndLofiChill', 
+        lofi_rain: 'sndLofiRain', 
+        lofi_dream: 'sndLofiDream' 
+      };
+      if (document.getElementById(activeMap[type])) {
+        document.getElementById(activeMap[type]).className = 'px-2 py-0.5 rounded-lg text-[10px] font-bold bg-emerald-100 text-emerald-800 shrink-0';
+      }
+
+      initAudio();
+      if (type === 'none') {
+        stopAmbientSound();
+      } else {
+        playAmbientSound(type);
+      }
+    }
+
+    function playAmbientSound(type) {
+      initAudio();
+      stopAmbientSound();
+      if (type === 'none') return;
+
+      lofiStepCounter = 0;
+
+      if (type === 'lofi_chill') {
+        playChillhopBar();
+        lofiTimer = setInterval(playChillhopBar, 3330);
+      } else if (type === 'lofi_rain') {
+        startSoftRainTexture();
+        playRainPianoArpeggio();
+        lofiTimer = setInterval(playRainPianoArpeggio, 4200);
+      } else if (type === 'lofi_dream') {
+        startTibetanSingingBowlDrone();
+        playCrystalBellChime();
+        lofiTimer = setInterval(function() {
+          playCrystalBellChime();
+        }, 1800);
+      }
+    }
+
+    function playChillhopBar() {
+      if (!audioCtx || ambientSoundType !== 'lofi_chill') return;
+      var now = audioCtx.currentTime;
+      var beatDur = 0.83;
+      var chordData = CHILL_CHORDS[lofiStepCounter % CHILL_CHORDS.length];
+      lofiStepCounter++;
+
+      chordData.notes.forEach(function(freq, i) {
+        var noteTime = now + (i * 0.045);
+        var osc = audioCtx.createOscillator();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, noteTime);
+
+        var filter = audioCtx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(750, noteTime);
+
+        var gain = audioCtx.createGain();
+        gain.gain.setValueAtTime(0.0001, noteTime);
+        gain.gain.exponentialRampToValueAtTime(0.08, noteTime + 0.06);
+        gain.gain.exponentialRampToValueAtTime(0.02, noteTime + 1.2);
+        gain.gain.exponentialRampToValueAtTime(0.0001, noteTime + 3.0);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(noteTime);
+        osc.stop(noteTime + 3.1);
+      });
+
+      var bassOsc = audioCtx.createOscillator();
+      bassOsc.type = 'sine';
+      bassOsc.frequency.setValueAtTime(chordData.bass, now);
+      var bassGain = audioCtx.createGain();
+      bassGain.gain.setValueAtTime(0.0001, now);
+      bassGain.gain.linearRampToValueAtTime(0.12, now + 0.08);
+      bassGain.exponentialRampToValueAtTime(0.0001, now + 2.8);
+      bassOsc.connect(bassGain);
+      bassGain.connect(audioCtx.destination);
+      bassOsc.start(now);
+      bassOsc.stop(now + 2.9);
+
+      triggerLoFiKick(now);
+      triggerLoFiKick(now + beatDur * 2.5);
+      triggerLoFiRim(now + beatDur);
+      triggerLoFiRim(now + beatDur * 3);
+    }
+
+    function triggerLoFiKick(time) {
+      if (!audioCtx) return;
+      var osc = audioCtx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(110, time);
+      osc.frequency.exponentialRampToValueAtTime(42, time + 0.12);
+
+      var gain = audioCtx.createGain();
+      gain.gain.setValueAtTime(0.14, time);
+      gain.gain.exponentialRampToValueAtTime(0.0001, time + 0.26);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(time);
+      osc.stop(time + 0.28);
+    }
+
+    function triggerLoFiRim(time) {
+      if (!audioCtx) return;
+      var osc = audioCtx.createOscillator();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(320, time);
+
+      var filter = audioCtx.createBiquadFilter();
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(1400, time);
+      filter.Q.setValueAtTime(3, time);
+
+      var gain = audioCtx.createGain();
+      gain.gain.setValueAtTime(0.035, time);
+      gain.gain.exponentialRampToValueAtTime(0.0001, time + 0.08);
+
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(time);
+      osc.stop(time + 0.09);
+    }
+
+    function playRainPianoArpeggio() {
+      if (!audioCtx || ambientSoundType !== 'lofi_rain') return;
+      var now = audioCtx.currentTime;
+      var phrase = RAIN_PIANO_PHRASES[lofiStepCounter % RAIN_PIANO_PHRASES.length];
+      lofiStepCounter++;
+
+      phrase.forEach(function(freq, idx) {
+        var noteTime = now + (idx * 0.58);
+        playSinglePianoNote(freq, noteTime);
+      });
+    }
+
+    function playSinglePianoNote(freq, time) {
+      if (!audioCtx) return;
+      var osc1 = audioCtx.createOscillator();
+      osc1.type = 'sine';
+      osc1.frequency.setValueAtTime(freq, time);
+
+      var osc2 = audioCtx.createOscillator();
+      osc2.type = 'sine';
+      osc2.frequency.setValueAtTime(freq * 2.002, time);
+
+      var gain1 = audioCtx.createGain();
+      gain1.gain.setValueAtTime(0.0001, time);
+      gain1.gain.linearRampToValueAtTime(0.12, time + 0.025);
+      gain1.gain.exponentialRampToValueAtTime(0.03, time + 1.2);
+      gain1.gain.exponentialRampToValueAtTime(0.0001, time + 3.2);
+
+      var gain2 = audioCtx.createGain();
+      gain2.gain.setValueAtTime(0.0001, time);
+      gain2.gain.linearRampToValueAtTime(0.03, time + 0.02);
+      gain2.gain.exponentialRampToValueAtTime(0.0001, time + 1.6);
+
+      osc1.connect(gain1);
+      osc2.connect(gain2);
+      gain1.connect(audioCtx.destination);
+      gain2.connect(audioCtx.destination);
+
+      osc1.start(time);
+      osc2.start(time);
+      osc1.stop(time + 3.3);
+      osc2.stop(time + 3.3);
+    }
+
+    function startSoftRainTexture() {
+      if (!audioCtx) return;
+      var bufferSize = audioCtx.sampleRate * 2;
+      var noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      var output = noiseBuffer.getChannelData(0);
+      var last = 0;
+      for (var i = 0; i < bufferSize; i++) {
+        var white = Math.random() * 2 - 1;
+        last = (last + (0.018 * white)) / 1.018;
+        output[i] = last * 0.5;
+      }
+      ambientNoiseNode = audioCtx.createBufferSource();
+      ambientNoiseNode.buffer = noiseBuffer;
+      ambientNoiseNode.loop = true;
+
+      var rainFilter = audioCtx.createBiquadFilter();
+      rainFilter.type = 'lowpass';
+      rainFilter.frequency.setValueAtTime(520, audioCtx.currentTime);
+
+      ambientNoiseGain = audioCtx.createGain();
+      ambientNoiseGain.gain.setValueAtTime(0.035, audioCtx.currentTime);
+
+      ambientNoiseNode.connect(rainFilter);
+      rainFilter.connect(ambientNoiseGain);
+      ambientNoiseGain.connect(audioCtx.destination);
+      ambientNoiseNode.start();
+    }
+
+    function startTibetanSingingBowlDrone() {
+      if (!audioCtx) return;
+      var now = audioCtx.currentTime;
+
+      var bowl1 = audioCtx.createOscillator();
+      bowl1.type = 'sine';
+      bowl1.frequency.setValueAtTime(136.1, now);
+
+      var bowl2 = audioCtx.createOscillator();
+      bowl2.type = 'sine';
+      bowl2.frequency.setValueAtTime(272.2, now);
+
+      var bowlFilter = audioCtx.createBiquadFilter();
+      bowlFilter.type = 'lowpass';
+      bowlFilter.frequency.setValueAtTime(320, now);
+
+      var droneGain = audioCtx.createGain();
+      droneGain.gain.setValueAtTime(0.0001, now);
+      droneGain.gain.linearRampToValueAtTime(0.08, now + 1.8);
+
+      bowl1.connect(bowlFilter);
+      bowl2.connect(bowlFilter);
+      bowlFilter.connect(droneGain);
+      droneGain.connect(audioCtx.destination);
+
+      bowl1.start(now);
+      bowl2.start(now);
+      ambientDroneNodes = [bowl1, bowl2, droneGain];
+    }
+
+    function playCrystalBellChime() {
+      if (!audioCtx || ambientSoundType !== 'lofi_dream') return;
+      var now = audioCtx.currentTime;
+      var freq = CRYSTAL_BELL_FREQS[Math.floor(Math.random() * CRYSTAL_BELL_FREQS.length)];
+
+      var osc = audioCtx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, now);
+
+      var overtone = audioCtx.createOscillator();
+      overtone.type = 'sine';
+      overtone.frequency.setValueAtTime(freq * 2.756, now);
+
+      var bellGain = audioCtx.createGain();
+      bellGain.gain.setValueAtTime(0.0001, now);
+      bellGain.gain.linearRampToValueAtTime(0.07, now + 0.015);
+      bellGain.exponentialRampToValueAtTime(0.0001, now + 2.8);
+
+      var overGain = audioCtx.createGain();
+      overGain.gain.setValueAtTime(0.0001, now);
+      overGain.gain.linearRampToValueAtTime(0.02, now + 0.01);
+      overGain.exponentialRampToValueAtTime(0.0001, now + 1.2);
+
+      osc.connect(bellGain);
+      overtone.connect(overGain);
+      bellGain.connect(audioCtx.destination);
+      overGain.connect(audioCtx.destination);
+
+      osc.start(now);
+      overtone.start(now);
+      osc.stop(now + 2.9);
+      overtone.stop(now + 2.9);
+    }
+
+    function playChimeTone() {
+      if (!audioCtx) return;
+      var notes = [523.25, 659.25, 783.99, 1046.5];
+      var freq = notes[Math.floor(Math.random() * notes.length)];
+      var osc = audioCtx.createOscillator();
+      var gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 3.2);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 3.3);
+    }
+
+    function stopAmbientSound() {
+      if (lofiTimer) {
+        clearInterval(lofiTimer);
+        lofiTimer = null;
+      }
+      if (ambientNoiseNode) {
+        try { ambientNoiseNode.stop(); } catch(e) {}
+        ambientNoiseNode = null;
+      }
+      ambientNoiseGain = null;
+
+      if (ambientDroneNodes && ambientDroneNodes.length > 0) {
+        try {
+          ambientDroneNodes[0].stop();
+          ambientDroneNodes[1].stop();
+        } catch(e) {}
+        ambientDroneNodes = [];
+      }
+    }
+
+    /* ==========================================================================
+       3. 身心安定站：呼吸引導器狀態機與視覺波形
+       ========================================================================== */
+    var currentVisualMode = 'orb';
+    var isBreathingActive = false;
+    var breathRafId = null;
+    var currentPhase = 'idle';
+    var phaseStartTime = 0;
+    var phaseDurationMs = 0;
+    var lastDisplayedSeconds = -1;
+    var currentPattern = 'box';
+    var currentPhaseIdx = 0;
+
+    var selectedPracticeMinutes = 3;
+    var customMinutesVal = 10;
+    var practiceSessionStartTime = 0;
+    var practiceSessionDurationMs = 3 * 60 * 1000;
+    var practiceTimerInterval = null;
+
+    var PATTERNS = {
+      box: [
+        { name: '吸氣', dur: 4000, scale: 1.45, text: '徐緩吸氣' },
+        { name: '屏息', dur: 4000, scale: 1.45, text: '閉氣靜止' },
+        { name: '呼氣', dur: 4000, scale: 0.85, text: '深長吐氣' },
+        { name: '靜息', dur: 4000, scale: 0.85, text: '放鬆留白' }
+      ],
+      coherent: [
+        { name: '吸氣', dur: 5000, scale: 1.45, text: '共振吸氣' },
+        { name: '呼氣', dur: 5000, scale: 0.85, text: '共振呼氣' }
+      ],
+      relax: [
+        { name: '吸氣', dur: 4000, scale: 1.35, text: '鼻腔吸氣' },
+        { name: '屏息', dur: 7000, scale: 1.35, text: '專注閉氣' },
+        { name: '呼氣', dur: 8000, scale: 0.80, text: '慢速吐淨' }
+      ]
+    };
+    var patternIndex = 0;
+
+    function setVisualMode(mode) {
+      currentVisualMode = mode;
+      var orbBtn = document.getElementById('visModeOrb');
+      var waveBtn = document.getElementById('visModeWave');
+      var orbCont = document.getElementById('visualOrbContainer');
+      var waveCont = document.getElementById('visualWaveContainer');
+
+      if (mode === 'orb') {
+        if (orbBtn) orbBtn.className = 'px-3 py-1 rounded-xl bg-white text-emerald-800 font-bold shadow-sm';
+        if (waveBtn) waveBtn.className = 'px-3 py-1 rounded-xl text-stone-500 font-medium hover:text-stone-800';
+        if (orbCont) orbCont.classList.remove('hidden');
+        if (waveCont) waveCont.classList.add('hidden');
+      } else {
+        if (waveBtn) waveBtn.className = 'px-3 py-1 rounded-xl bg-white text-emerald-800 font-bold shadow-sm';
+        if (orbBtn) orbBtn.className = 'px-3 py-1 rounded-xl text-stone-500 font-medium hover:text-stone-800';
+        if (orbCont) orbCont.classList.add('hidden');
+        if (waveCont) waveCont.classList.remove('hidden');
+        resizeWaveCanvas();
+        drawWaveFrame();
+      }
+    }
+
+    function setBreathingPattern(p) {
+      if (isBreathingActive) toggleBreathingGuide();
+      currentPattern = p;
+      ['btnBox', 'btnCoherent', 'btnRelax'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.className = 'px-2.5 py-1 rounded-xl bg-white text-stone-600 font-medium border border-stone-200';
+      });
+      var activeMap = { box: 'btnBox', coherent: 'btnCoherent', relax: 'btnRelax' };
+      if (document.getElementById(activeMap[p])) {
+        document.getElementById(activeMap[p]).className = 'px-2.5 py-1 rounded-xl bg-emerald-100 text-emerald-800 font-bold border border-emerald-200';
+      }
+      if (currentVisualMode === 'wave') drawWaveFrame();
+    }
+
+    function setPracticeDuration(min) {
+      selectedPracticeMinutes = min;
+      practiceSessionDurationMs = min * 60 * 1000;
+      ['dur1', 'dur3', 'dur5', 'dur0', 'durCustom'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.className = 'dur-btn px-2 py-0.5 rounded-lg text-[10px] text-stone-600 hover:bg-stone-100';
+      });
+      var map = { 1: 'dur1', 3: 'dur3', 5: 'dur5', 0: 'dur0' };
+      var activeEl = document.getElementById(map[min] || 'durCustom');
+      if (activeEl) {
+        activeEl.className = 'dur-btn px-2 py-0.5 rounded-lg text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200';
+      }
+
+      var box = document.getElementById('customDurationBox');
+      if (box && min !== -1) box.classList.add('hidden');
+    }
+
+    function toggleCustomDurationInput() {
+      var box = document.getElementById('customDurationBox');
+      if (box) box.classList.toggle('hidden');
+    }
+
+    function adjustCustomMinutes(delta) {
+      customMinutesVal = Math.max(1, Math.min(30, customMinutesVal + delta));
+      var disp = document.getElementById('customMinutesDisplay');
+      if (disp) disp.textContent = customMinutesVal;
+    }
+
+    function applyCustomDuration() {
+      selectedPracticeMinutes = customMinutesVal;
+      practiceSessionDurationMs = customMinutesVal * 60 * 1000;
+      setPracticeDuration(-1);
+      var custBtn = document.getElementById('durCustom');
+      if (custBtn) {
+        custBtn.textContent = '✏️ ' + customMinutesVal + '分鐘';
+        custBtn.className = 'dur-btn px-2 py-0.5 rounded-lg text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200';
+      }
+      var box = document.getElementById('customDurationBox');
+      if (box) box.classList.add('hidden');
+    }
+
+    function toggleBreathingGuide() {
+      initAudio();
+      var circle = document.getElementById('breathCircle');
+      var centerLabel = document.getElementById('breathCenterLabel');
+      var controlBtn = document.getElementById('guideControlBtn');
+      var timerBadge = document.getElementById('breathTotalTimerBadge');
+
+      if (isBreathingActive) {
+        // 停止引導
+        isBreathingActive = false;
+        if (breathRafId) cancelAnimationFrame(breathRafId);
+        if (practiceTimerInterval) clearInterval(practiceTimerInterval);
+        stopAmbientSound();
+
+        if (circle) circle.style.transform = 'scale(1)';
+        if (centerLabel) centerLabel.textContent = '開始';
+        if (controlBtn) {
+          controlBtn.textContent = '開始引導深呼吸';
+          controlBtn.className = 'w-full py-2.5 rounded-2xl font-black text-xs text-emerald-950 bg-emerald-400 hover:bg-emerald-500 shadow-md transition-colors';
+        }
+        if (timerBadge) timerBadge.classList.add('hidden');
+        document.getElementById('breathPhaseText').textContent = '準備開始';
+        document.getElementById('breathSecondsText').textContent = '0';
+        currentPhaseIdx = 0;
+        if (currentVisualMode === 'wave') drawWaveFrame();
+      } else {
+        // 開始引導
+        isBreathingActive = true;
+        currentPhaseIdx = 0;
+        patternIndex = 0;
+        phaseStartTime = performance.now();
+        lastDisplayedSeconds = -1;
+        practiceSessionStartTime = performance.now();
+
+        if (ambientSoundType !== 'none') {
+          playAmbientSound(ambientSoundType);
+        }
+
+        if (centerLabel) centerLabel.textContent = '暫停';
+        if (controlBtn) {
+          controlBtn.textContent = '暫停引導';
+          controlBtn.className = 'w-full py-2.5 rounded-2xl font-black text-xs text-white bg-stone-900 hover:bg-stone-800 shadow-md transition-colors';
+        }
+
+        if (selectedPracticeMinutes > 0 && timerBadge) {
+          timerBadge.classList.remove('hidden');
+          updateTotalCountdownDisplay();
+          practiceTimerInterval = setInterval(updateTotalCountdownDisplay, 1000);
+        }
+
+        nextBreathingPhase();
+        breathAnimationLoop();
+      }
+    }
+
+    function updateTotalCountdownDisplay() {
+      if (!isBreathingActive || selectedPracticeMinutes <= 0) return;
+      var elapsed = performance.now() - practiceSessionStartTime;
+      var remainMs = practiceSessionDurationMs - elapsed;
+
+      if (remainMs <= 0) {
+        playChimeTone();
+        toggleBreathingGuide();
+        document.getElementById('breathPhaseText').textContent = '🎉 練習圓滿完成';
+        return;
+      }
+
+      var totalSec = Math.ceil(remainMs / 1000);
+      var m = Math.floor(totalSec / 60);
+      var s = totalSec % 60;
+      var formatted = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+      var el = document.getElementById('breathTotalTimeRemaining');
+      if (el) el.textContent = formatted;
+    }
+
+    function nextBreathingPhase() {
+      var seq = PATTERNS[currentPattern];
+      currentPhaseIdx = patternIndex % seq.length;
+      var step = seq[currentPhaseIdx];
+      currentPhase = step.name;
+      phaseDurationMs = step.dur;
+      phaseStartTime = performance.now();
+
+      var phaseText = document.getElementById('breathPhaseText');
+      if (phaseText) phaseText.textContent = step.text;
+
+      var circle = document.getElementById('breathCircle');
+      if (circle) {
+        circle.style.transitionDuration = (step.dur / 1000) + 's';
+        circle.style.transform = 'scale(' + step.scale + ')';
+      }
+
+      patternIndex++;
+    }
+
+    function breathAnimationLoop() {
+      if (!isBreathingActive) return;
+      var now = performance.now();
+      var elapsedInPhase = now - phaseStartTime;
+
+      if (elapsedInPhase >= phaseDurationMs) {
+        nextBreathingPhase();
+      } else {
+        var remainSec = Math.ceil((phaseDurationMs - elapsedInPhase) / 1000);
+        if (remainSec !== lastDisplayedSeconds) {
+          lastDisplayedSeconds = remainSec;
+          var secEl = document.getElementById('breathSecondsText');
+          if (secEl) secEl.textContent = remainSec;
+        }
+      }
+
+      if (currentVisualMode === 'wave') {
+        drawWaveFrame();
+      }
+
+      breathRafId = requestAnimationFrame(breathAnimationLoop);
+    }
+
+    function resizeWaveCanvas() {
+      var canvas = document.getElementById('breathWaveCanvas');
+      if (!canvas) return;
+      var rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * (window.devicePixelRatio || 1);
+      canvas.height = rect.height * (window.devicePixelRatio || 1);
+    }
+
+    /* 繪製梯形呼吸軌跡、座標網格與翠綠光暈引導球 */
+    function drawWaveFrame() {
+      var canvas = document.getElementById('breathWaveCanvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var w = canvas.width;
+      var h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+
+      var dpr = window.devicePixelRatio || 1;
+
+      // 1. 繪製精細的座標方格參考線
+      ctx.save();
+      ctx.strokeStyle = 'rgba(168, 188, 168, 0.45)';
+      ctx.lineWidth = 1 * dpr;
+
+      var gridSize = 18 * dpr;
+      for (var x = 0; x < w; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
+      }
+      for (var y = 0; y < h; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      // 2. 構建梯形折線軌跡 (吸氣上升 -> 屏息持平 -> 呼氣下降 -> 靜息持平)
+      var padX = 26 * dpr;
+      var padYTop = 26 * dpr;
+      var padYBottom = h - 30 * dpr;
+      var usableW = w - (padX * 2);
+
+      var seq = PATTERNS[currentPattern];
+      var totalPatternDur = seq.reduce(function(acc, item) { return acc + item.dur; }, 0);
+
+      var points = [];
+      var currX = padX;
+
+      // 起始點 (左下基線)
+      points.push({ x: currX, y: padYBottom });
+
+      seq.forEach(function(phase) {
+        var segW = (phase.dur / totalPatternDur) * usableW;
+        var endX = currX + segW;
+        var targetY;
+
+        if (phase.name === '吸氣') targetY = padYTop;
+        else if (phase.name === '屏息') targetY = padYTop;
+        else if (phase.name === '呼氣') targetY = padYBottom;
+        else targetY = padYBottom;
+
+        points.push({ x: endX, y: targetY });
+        currX = endX;
+      });
+
+      // 3. 繪製翡翠綠粗折線軌跡
+      ctx.save();
+      ctx.strokeStyle = '#1b9a6b';
+      ctx.lineWidth = 4.5 * dpr;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      ctx.beginPath();
+      ctx.moveTo(points[0].x, points[0].y);
+      for (var i = 1; i < points.length; i++) {
+        ctx.lineTo(points[i].x, points[i].y);
+      }
+      ctx.stroke();
+      ctx.restore();
+
+      // 4. 計算並繪製動態引導光點 (帶翠綠呼吸光暈)
+      var ballX = points[0].x;
+      var ballY = points[0].y;
+
+      if (isBreathingActive) {
+        var elapsed = performance.now() - phaseStartTime;
+        var progress = Math.min(1, Math.max(0, elapsed / phaseDurationMs));
+        var pStart = points[currentPhaseIdx];
+        var pEnd = points[currentPhaseIdx + 1];
+
+        if (pStart && pEnd) {
+          ballX = pStart.x + (pEnd.x - pStart.x) * progress;
+          ballY = pStart.y + (pEnd.y - pStart.y) * progress;
+        }
+      }
+
+      ctx.save();
+      // 外層柔光光暈
+      ctx.shadowColor = 'rgba(27, 154, 107, 0.65)';
+      ctx.shadowBlur = 9 * dpr;
+
+      // 翡翠綠光圈
+      ctx.fillStyle = '#1b9a6b';
+      ctx.beginPath();
+      ctx.arc(ballX, ballY, 7.5 * dpr, 0, Math.PI * 2);
+      ctx.fill();
+
+      // 中心亮核
+      ctx.shadowBlur = 0;
+      ctx.fillStyle = '#34d399';
+      ctx.beginPath();
+      ctx.arc(ballX, ballY, 4 * dpr, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    /* ==========================================================================
+       4. 身心覺察站：HBT 脈搏追蹤演算法 (15次點擊 + 離群過濾)
+       ========================================================================== */
+    var TOTAL_TAPS_REQUIRED = 15;
+    var tapTimestamps = [];
+
+    function registerHeartTap() {
+      initAudio();
+      if (navigator.vibrate) navigator.vibrate(12);
+
+      var now = performance.now();
+      tapTimestamps.push(now);
+
+      var btn = document.getElementById('tapHeartBtn');
+      if (btn) {
+        btn.classList.add('scale-90');
+        setTimeout(function() { btn.classList.remove('scale-90'); }, 120);
+      }
+
+      var count = tapTimestamps.length;
+      var progBar = document.getElementById('tapProgressBar');
+      var countDisp = document.getElementById('tapCountDisplay');
+      var liveBpmEl = document.getElementById('tapLiveBpm');
+
+      if (progBar) progBar.style.width = (count / TOTAL_TAPS_REQUIRED * 100) + '%';
+      if (countDisp) countDisp.textContent = '已記錄 ' + count + ' / ' + TOTAL_TAPS_REQUIRED + ' 次';
+
+      if (count >= 2) {
+        var recentDiff = (tapTimestamps[count - 1] - tapTimestamps[count - 2]) / 1000;
+        if (recentDiff > 0.3 && recentDiff < 2.0) {
+          var liveBpm = Math.round(60 / recentDiff);
+          if (liveBpmEl) liveBpmEl.innerHTML = liveBpm + ' <span class="text-xs font-normal text-stone-500">BPM</span>';
+        }
+      }
+
+      if (count >= TOTAL_TAPS_REQUIRED) {
+        finalizeTapMeasurement();
+      }
+    }
+
+    function finalizeTapMeasurement() {
+      var intervals = [];
+      for (var i = 1; i < tapTimestamps.length; i++) {
+        var diff = (tapTimestamps[i] - tapTimestamps[i - 1]) / 1000;
+        intervals.push(diff);
+      }
+
+      // 捨棄前 3 次適應期 (Burn-in)
+      var valid = intervals.slice(3).filter(function(d) { return d >= 0.35 && d <= 1.8; });
+      if (valid.length < 4) valid = intervals.filter(function(d) { return d >= 0.35 && d <= 1.8; });
+
+      var sum = valid.reduce(function(a, b) { return a + b; }, 0);
+      var avgSec = sum / (valid.length || 1);
+      var calculatedBpm = Math.round(60 / (avgSec || 0.8));
+
+      tapTimestamps = [];
+      var progBar = document.getElementById('tapProgressBar');
+      var countDisp = document.getElementById('tapCountDisplay');
+      if (progBar) progBar.style.width = '0%';
+      if (countDisp) countDisp.textContent = '已記錄 0 / 15 次';
+
+      showBioReport(calculatedBpm);
+    }
+
+    function showBioReport(bpm) {
+      document.getElementById('reportAvgBpm').textContent = bpm;
+      var badge = document.getElementById('reportStateBadge');
+      var narrative = document.getElementById('reportNarrative');
+
+      if (bpm < 60) {
+        badge.textContent = '沉靜悠緩';
+        badge.className = 'inline-block text-sm font-bold px-3 py-1 rounded-full bg-sky-100 text-sky-800';
+        narrative.textContent = '感受到的脈搏節奏相當沉緩深遠。當前身體處於副交感神經主導的修復狀態，請繼續保持這份舒適平穩。';
+      } else if (bpm <= 85) {
+        badge.textContent = '平緩舒適';
+        badge.className = 'inline-block text-sm font-bold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800';
+        narrative.textContent = '感受到的脈搏節奏相對平緩穩定。不妨給自己片刻時間，輕輕閉上眼，留意當下身體的放鬆感與自然呼吸。';
+      } else {
+        badge.textContent = '節律活躍';
+        badge.className = 'inline-block text-sm font-bold px-3 py-1 rounded-full bg-amber-100 text-amber-800';
+        narrative.textContent = '脈搏節奏略顯活躍或緊湊。深呼吸是迅速平衡神經系統的良方，建議點擊下方按鈕進行 3 分鐘調息。';
+      }
+
+      openModal('bioReportModal');
+    }
+
+    function retestFromReport() {
+      closeModal('bioReportModal');
+      tapTimestamps = [];
+      var liveBpm = document.getElementById('tapLiveBpm');
+      if (liveBpm) liveBpm.innerHTML = '-- <span class="text-xs font-normal text-stone-500">BPM</span>';
+    }
+
+    /* ==========================================================================
+       5. 心情溫度計：BSRS-5 自評問卷
+       ========================================================================== */
+    var bsrsAnswers = {};
+
+    function selectBsrsOption(qIdx, score) {
+      bsrsAnswers[qIdx] = score;
+      var buttons = document.querySelectorAll('.bsrs-opt-' + qIdx);
+      buttons.forEach(function(btn, idx) {
+        if (idx === score) {
+          btn.className = 'bsrs-opt-' + qIdx + ' py-1.5 px-0.5 rounded-xl bg-amber-200 text-[10px] font-bold text-amber-950 border border-amber-400 shadow-2xs';
+        } else {
+          btn.className = 'bsrs-opt-' + qIdx + ' py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200';
+        }
+      });
+    }
+
+    function calculateBsrsScore() {
+      for (var i = 1; i <= 5; i++) {
+        if (bsrsAnswers[i] === undefined) {
+          var form = document.getElementById('bsrsQuestionsForm');
+          var err = document.getElementById('bsrsErrorHint');
+          if (!err) {
+            err = document.createElement('div');
+            err.id = 'bsrsErrorHint';
+            err.className = 'p-2 bg-rose-50 text-rose-700 text-xs font-bold rounded-xl text-center border border-rose-200';
+            err.textContent = '請先完成全部 5 道題目喔！';
+            form.prepend(err);
+          }
+          return;
+        }
+      }
+
+      var total = 0;
+      for (var k in bsrsAnswers) total += bsrsAnswers[k];
+
+      document.getElementById('bsrsQuestionsForm').classList.add('hidden');
+      document.getElementById('bsrsResultCard').classList.remove('hidden');
+
+      document.getElementById('bsrsScoreVal').textContent = total;
+      var bar = document.getElementById('bsrsThermometerBar');
+      var badge = document.getElementById('bsrsStatusBadge');
+      var text = document.getElementById('bsrsAnalysisText');
+
+      if (bar) bar.style.width = Math.min(100, (total / 20 * 100)) + '%';
+
+      if (total <= 5) {
+        badge.textContent = '良好平穩';
+        badge.className = 'bg-emerald-50 text-emerald-800 px-2.5 py-0.5 rounded-full text-[11px] font-bold border border-emerald-200';
+        text.textContent = '身心適應良好，目前情緒處於平穩健康的區間！繼續維持生活作息與自我關照。';
+      } else if (total <= 9) {
+        badge.textContent = '輕度負荷';
+        badge.className = 'bg-amber-50 text-amber-800 px-2.5 py-0.5 rounded-full text-[11px] font-bold border border-amber-200';
+        text.textContent = '有些微的情緒或身心緊繃。建議今天給自己預留 15～30 分鐘微休，多練習腹式呼吸或向信任的朋友傾訴。';
+      } else if (total <= 14) {
+        badge.textContent = '中度壓力';
+        badge.className = 'bg-orange-50 text-orange-800 px-2.5 py-0.5 rounded-full text-[11px] font-bold border border-orange-200';
+        text.textContent = '身心累積了較多困擾或疲憊。建議適當調整生活節奏，如有需要，可尋求輔導機構或心理專業人士的諮詢協助。';
+      } else {
+        badge.textContent = '重度負荷';
+        badge.className = 'bg-rose-50 text-rose-800 px-2.5 py-0.5 rounded-full text-[11px] font-bold border border-rose-200';
+        text.textContent = '身心負荷處於較高狀態。請溫柔照顧自己，非常鼓勵您善用本澳 24 小時關懷專線或預約專業心理評估。';
+      }
+    }
+
+    function resetBsrsTest() {
+      bsrsAnswers = {};
+      for (var i = 1; i <= 5; i++) {
+        var buttons = document.querySelectorAll('.bsrs-opt-' + i);
+        buttons.forEach(function(btn) {
+          btn.className = 'bsrs-opt-' + i + ' py-1.5 px-0.5 rounded-xl bg-stone-100 text-[10px] font-bold text-stone-600 border border-stone-200';
+        });
+      }
+      var err = document.getElementById('bsrsErrorHint');
+      if (err) err.remove();
+      document.getElementById('bsrsQuestionsForm').classList.remove('hidden');
+      document.getElementById('bsrsResultCard').classList.add('hidden');
+    }
+
+    /* ==========================================================================
+       6. 今日情緒微簽到與詞庫
+       ========================================================================== */
+    var selectedMoodData = null;
+
+    function selectMoodWord(word, emoji, practice) {
+      selectedMoodData = { word: word, emoji: emoji, practice: practice };
+      var badge = document.getElementById('selectedMoodBadge');
+      var insight = document.getElementById('selectedMoodInsight');
+      var card = document.getElementById('moodAnalysisCard');
+
+      if (badge) badge.innerHTML = emoji + ' ' + word;
+      if (card) card.classList.remove('hidden');
+
+      if (insight) {
+        insight.innerHTML = '當感受到「<strong>' + emoji + ' ' + word + '</strong>」時，神經系統正向大腦傳遞身心訊號。建議搭配 <strong>' + practice + '</strong> 讓身心回歸平衡。';
+      }
+    }
+
+    function saveMoodCheckIn(goToPractice) {
+      if (!selectedMoodData) return;
+      var journalText = document.getElementById('moodJournalInput') ? document.getElementById('moodJournalInput').value : '';
+
+      try {
+        localStorage.setItem('apm_daily_mood', JSON.stringify({
+          word: selectedMoodData.word,
+          emoji: selectedMoodData.emoji,
+          practice: selectedMoodData.practice,
+          journal: journalText,
+          time: new Date().toISOString()
+        }));
+      } catch(e) {}
+
+      var homeBadge = document.getElementById('moodCurrentBadge');
+      var homeSub = document.getElementById('moodCurrentSubtitle');
+
+      if (homeBadge) {
+        homeBadge.textContent = selectedMoodData.emoji + ' ' + selectedMoodData.word;
+        homeBadge.className = 'text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 shadow-2xs';
+      }
+      if (homeSub) {
+        homeSub.textContent = journalText ? '「' + journalText + '」' : '已完成今日情緒覺察命名';
+      }
+
+      closeModal('moodModal');
+
+      if (goToPractice) {
+        if (selectedMoodData.practice.indexOf('呼吸') !== -1) {
+          openModal('breathingModal');
+        } else if (selectedMoodData.practice.indexOf('著陸') !== -1) {
+          openModal('groundingModal');
+        } else if (selectedMoodData.practice.indexOf('溫度計') !== -1) {
+          openModal('bsrsModal');
+        } else {
+          openModal('biofeedbackModal');
+        }
+      }
+    }
+
+    // 啟動時讀取既有記錄
+    (function loadSavedMood() {
+      try {
+        var saved = localStorage.getItem('apm_daily_mood');
+        if (saved) {
+          var parsed = JSON.parse(saved);
+          var homeBadge = document.getElementById('moodCurrentBadge');
+          var homeSub = document.getElementById('moodCurrentSubtitle');
+          if (homeBadge) {
+            homeBadge.textContent = parsed.emoji + ' ' + parsed.word;
+            homeBadge.className = 'text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 shadow-2xs';
+          }
+          if (homeSub && parsed.journal) {
+            homeSub.textContent = '「' + parsed.journal + '」';
+          }
+        }
+      } catch(e) {}
+    })();
+
+    window.addEventListener('resize', function() {
+      if (currentVisualMode === 'wave') {
+        resizeWaveCanvas();
+        drawWaveFrame();
+      }
+    });
+  </script>
+</body>
+</html>
